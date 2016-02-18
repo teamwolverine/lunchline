@@ -1,0 +1,23 @@
+{
+  "name": "lunchline",
+  "version": "1.0.0",
+  "description": "Lunchline App",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamwolverine/lunchline.git"
+  },
+  "author": "Team Wolverine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamwolverine/lunchline/issues"
+  },
+  "homepage": "https://github.com/teamwolverine/lunchline#readme"
+}
