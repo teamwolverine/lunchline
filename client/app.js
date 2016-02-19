@@ -1,4 +1,4 @@
-angular.module('Wolverine', ['ui.router'])
+angular.module('Lunchline', ['ui.router'])
 //UI router setup
 .config(function ($stateProvider, $urlRouterProvider) {
    $stateProvider
