@@ -1,0 +1,1 @@
+/* Handles controller code for main restaurant info */
