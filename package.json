@@ -6,6 +6,11 @@
   "dependencies": {
     "angular-ui-bootstrap": "^1.1.2",
     "express": "^4.13.4"
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.4",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
