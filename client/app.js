@@ -1,4 +1,4 @@
-angular.module('Lunchline', ['ui.router'])
+angular.module('Lunchline', ['ui.router', 'ui.bootstrap'])
 //UI router setup
 .config(function ($stateProvider, $urlRouterProvider) {
    $stateProvider
@@ -8,6 +8,10 @@ angular.module('Lunchline', ['ui.router'])
    .state('example', {
       url: '/example',
       templateUrl: '/example/example.html'
+   })
+   .state('restView', {
+      url: '/restView',
+      templateUrl: './app/restView/rest.html'
    })
 })
 //Main index behavior
