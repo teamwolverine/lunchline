@@ -10,7 +10,10 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.4",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "angular": "~1.5.0",
+    "angular-ui-router": "~0.2.18",
+    "bootstrap": "~3.3.6"
   },
   "devDependencies": {},
   "scripts": {
