@@ -4,11 +4,19 @@
   "description": "Lunchline App",
   "main": "index.js",
   "dependencies": {
+    "angular-ui-bootstrap": "^1.1.2",
     "express": "^4.13.4"
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.4",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "postinstall": "bower cache clean && bower install"
   },
   "repository": {
     "type": "git",
