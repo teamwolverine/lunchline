@@ -1,6 +1,5 @@
 //requirements
 var express = require('express');
-var port = 8080; //update before deployment
 var app = express();
 var cors = require('cors');
 var Q = require('q');
@@ -20,8 +19,4 @@ app.use(express.static(__dirname + '/client/'));//serving all static files to ou
 
 app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 
-
-//listen
-app.listen(port);
-
-console.log("Express server listening on %d in %s mode", port, app.settings.env);
+module.exports = app;
