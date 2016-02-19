@@ -1,6 +1,6 @@
 //requirements
 var express = require('express');
-var port = 8080; //update before deployment
+var port = process.env.PORT || 8080;
 var app = express();
 var cors = require('cors');
 var Q = require('q');
