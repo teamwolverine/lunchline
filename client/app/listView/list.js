@@ -1,11 +1,23 @@
 //Retrieve information from the server and serve it in HTML.
-angular.module('lunchline', [])
-.controller('listCtrl', function($scope, Data) {
-Data.getData()
-.then(function(fetchedData) {
-   $scope.list = Data.filterData(fetchedData);
-});
+myApp
+.controller('listCtrl', function($scope, Http, Data) {
+   console.log('listCtrl called');
+   $scope.getData = function (url) {
 
+   }
+
+
+
+   $scope.data = {};
+   $scope.restInfo = function () {
+      Data.getData()
+      .then(function(fetchedData) {
+         console.log('This is the organized data: ', fetchedData);
+         $scope.data.list = fetchedData;
+      })
+   }
+   $scope.restInfo();
+});
 
 
 /*.controller('miniSprintCtrl', function($scope, State){
