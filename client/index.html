@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html ng-app='Lunchline'>
+<html ng-app='lunchline'>
 <head>
-   <title>Lunchline</title>
+   <title>lunchline</title>
 
    <script src='/bower/angular/angular.min.js'></script>
    <script src="/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
    <script src='/node/angular-ui-bootstrap/dist/ui-bootstrap.js'></script>
 
    <script src='./app.js'></script>
+   <script src='./app/listView/list.js'></script>
+   <script src='./app/factories/factory1.js'></script>
 
    <link rel="stylesheet" type="text/css" href="/bower/bootstrap/dist/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="/bower/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -15,11 +17,12 @@
 
 </head>
 <body>
-   <h1>Lunchline</h1>
+   <h1>lunchline</h1>
    <!--Navigation bar -->
    <div class='navigation'>
       <ul>
-         <li><a ng-href='#/home'>Home</a></li>
+         <li><a ng-href='home'>Home</a></li>
+         <li><a ui-sref='listView'>List View</a></li>
          <li><a ui-sref='restView'>Restaurant View</a></li>
       </ul>
    </div>
