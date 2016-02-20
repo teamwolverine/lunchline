@@ -1,10 +1,8 @@
 var cors = require('cors');
 var Q = require('q');
-var Restaurant = require('/restModel.js'); 
+var Restaurant = require('./restModel.js'); 
 
 //helper functions for http requests
-module.exports = {
-
 //headers for when places
 // var headers = {
 //   "access-control-allow-origin": "*",
@@ -25,9 +23,10 @@ module.exports = {
 
 //get request on page load to grab local 
 //restaurants from database
-fetchRestaurants: function(req, resp, next){
+exports.fetchRestaurants = function(req, resp, next){
   //query db to get all our restaurants
-  var allItems = Q.nbind(Restaurant.findOne, Restaurant)
+  console.log("fetch is running")
+  var allItems = Q.nbind(Restaurant.find, Restaurant)
   //get all the restaurant listings
   allItems({}).then(function(restaurants){
     //respond with a json
@@ -38,9 +37,9 @@ fetchRestaurants: function(req, resp, next){
 },
 
 //post request to update a wait time
-updateWait: function(req, resp, next){
+exports.updateWait = function(req, resp, next){
   //query for the obj id
-  var query = {_.id: req.body._id};
+  var query = {_id: req.body._id};
   //update the wait time property
   var update = {wait: req.body.data};
   var options = {upsert: true, new: true}
@@ -50,8 +49,6 @@ updateWait: function(req, resp, next){
       }    
     resp.json(restaurant);  
     })
-}
+  }
   
-
-}
 
