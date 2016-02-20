@@ -1,34 +1,59 @@
-angular.module('lunchline', [])
+myApp
+// .factory('HttpRequest', function($http){
+//   function get(url) {
+//     return $http.get(url);
+//   }
+//   return {
+//     get : get
+//   }
+// })
+// .factory('State', function(HttpRequest){
+//   var getPromise;
+//   function init(url){
+//     getPromise = HttpRequest.get(url)
+//   }
+//   function getData(){
+//     return getPromise;
+//   }
 .factory('Http', function($http) {
-   function get() {
+   function get(url) {
+      console.log('Get request');
     //Determine URL Address and insert here.
-    return $http.get();
-  }
-  return {
+    return $http.get(url)
+   }
+   return {
     get : get
    }
 }).factory('Data', function(Http) {
-   //fetching data takes time, so make promise
-   var promise;
-
    //Using the Http factory, fetch the data.
-   var getData = function () {
-      promise = Http.get();
+   var getPromise;
+   function delay(){
+      console.log('Assigning promise');
+      getPromise = Http.get('/api');
+   }
+   function fetchData(){
+      console.log('Returning promise');
+      return getPromise;
    }
 
-   var filterData = function (data) {
-      var filePath = data.results;
-      //Divide data recieved into portions of data (objs)
-      var organize = filePath.map(function(restaurant) {
-         return {
-            name: restaurant.name; //This filepath could change!!!
-            color: restaurant.color; //This filepath could change!!!
-            //Maybe pull in more information for Rick!
-         }
-      });
-      //Return organized data
-      return organize;
-   }
+   var getData = function () {
+      delay();
+      console.log("Get Data yo!");
+      return fetchData()
+      .then(function(data) {
+         console.log('This is raw data: ', data);
+         var filePath = data;
+         return filePath.map(function(restaurant) {
+            return {
+               name: restaurant.name, //This filepath could change!!!
+               color: restaurant.color //This filepath could change!!!
+            }
+         })
+      })
+   };
+      return {
+         getData : getData
+      }
 }).factory('CalcDistance', function(Data) {
    //calculate teh difference between current location
    //and fetched location data
