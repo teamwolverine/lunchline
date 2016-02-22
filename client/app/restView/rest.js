@@ -15,7 +15,7 @@ myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
     // Test function to get grab first restaurant from database
     Data.getData()
       .then(function(fetchedData) {
-        console.log('++GOT DATA,', fetchedData);
+      //   console.log('++GOT DATA,', fetchedData);
         $scope.list = fetchedData.data;
 
         $scope.restaurant.name = $scope.list[0].name;
@@ -53,7 +53,5 @@ myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
 
     $scope.getFocused = FocusedRestaurant.getFocusedRestaurant();
 
-    console.log($scope.getFocused);
+   //  console.log($scope.getFocused);
   });
-
-
