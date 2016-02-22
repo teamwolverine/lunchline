@@ -6,8 +6,11 @@ myApp
       Data.getData()
       .then(function(fetchedData) {
          $scope.data = fetchedData;
-         console.log('Ctrl Data Length: ' + $scope.data.length);
       })
    }
    $scope.restInfo();
+   $scope.transferEvent = function(obj) {
+      Data.clickedItem = obj;
+      console.log('Factory data: ', Data.clickedItem);
+   }
 });
