@@ -58,7 +58,5 @@ myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
 
     $scope.getFocused = FocusedRestaurant.getFocusedRestaurant();
 
-    console.log($scope.getFocused);
+   //  console.log($scope.getFocused);
   });
-
-

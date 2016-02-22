@@ -1,6 +1,6 @@
 var cors = require('cors');
 var Q = require('q');
-var Restaurant = require('./restModel.js'); 
+var Restaurant = require('./restModel.js');
 
 //helper functions for http requests
 //headers for when places
@@ -19,13 +19,13 @@ var Restaurant = require('./restModel.js');
     //if not found
       // add it to the database
       // add a wait property
-  //return the response obj     
+  //return the response obj
 
-//get request on page load to grab local 
+//get request on page load to grab local
 //restaurants from database
 exports.fetchRestaurants = function(req, resp, next){
   //query db to get all our restaurants
-  console.log("fetch is running")
+  // console.log("fetch is running")
   var allItems = Q.nbind(Restaurant.find, Restaurant)
   //get all the restaurant listings
   allItems({}).then(function(restaurants){
@@ -46,9 +46,7 @@ exports.updateWait = function(req, resp, next){
   Restaurant.findOneAndUpdate(query, update,options, function(err, restaurant) {
       if (err) {
         throw err;
-      }    
-    resp.json(restaurant);  
+      }
+    resp.json(restaurant);
     })
   }
-  
-
