@@ -1,20 +1,4 @@
 myApp
-// .factory('HttpRequest', function($http){
-//   function get(url) {
-//     return $http.get(url);
-//   }
-//   return {
-//     get : get
-//   }
-// })
-// .factory('State', function(HttpRequest){
-//   var getPromise;
-//   function init(url){
-//     getPromise = HttpRequest.get(url)
-//   }
-//   function getData(){
-//     return getPromise;
-//   }
 .factory('Http', function($http) {
    function get(url) {
       console.log('Get request');
@@ -41,12 +25,12 @@ myApp
       console.log("Get Data yo!");
       return fetchData()
       .then(function(data) {
-         console.log('This is raw data: ', data);
-         var filePath = data;
+         console.log('This is raw data length: ', data.data.length);
+         var filePath = data.data;
          return filePath.map(function(restaurant) {
+            console.log(restaurant);
             return {
-               name: restaurant.name, //This filepath could change!!!
-               color: restaurant.color //This filepath could change!!!
+               restaurant: restaurant
             }
          })
       })

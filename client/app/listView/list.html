@@ -1,12 +1,12 @@
 <div ng-controller="listCtrl">
-      <ul>
-         <li ng-repeat="restaurant in list track by $index">
-            <div>
-               {{restaurant.name}},
-               {{restaurant.color}}
-            </div>
-         </li>
-      </ul>
+   <div ng-repeat="restaurant in data track by $index">
+      <a ng-href='#/restView'>
+      <div ng-click='transferEvent(restaurant.id)'>
+         {{restaurant.name}},
+         {{restaurant.wait}}
+      </div>
+      <a>
+   </div>
 </div>
 
 <!-- $scope.lat = 34.019431;
