@@ -46,4 +46,18 @@ myApp
    $scope.long = -118.494357;
 })
 
+
+
+
 //Rick factories below here ^O^/
+.factory('FocusedRestaurant', function() {
+  function getFocusedRestaurant(data) {
+    data = 'test data';
+    console.log('Get Focused Restaurant called');
+    return data;
+  }
+
+  return {
+    getFocusedRestaurant: getFocusedRestaurant
+  };
+});
