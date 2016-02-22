@@ -43,12 +43,15 @@ myApp
       .then(function(data) {
          console.log('This is raw data: ', data);
          var filePath = data;
-         return filePath.map(function(restaurant) {
-            return {
-               name: restaurant.name, //This filepath could change!!!
-               color: restaurant.color //This filepath could change!!!
-            }
-         })
+
+         return data;
+
+         // return filePath.map(function(restaurant) {
+         //    return {
+         //       name: restaurant.name, //This filepath could change!!!
+         //       color: restaurant.color //This filepath could change!!!
+         //    }
+         // })
       })
    };
       return {
@@ -62,4 +65,18 @@ myApp
    $scope.long = -118.494357;
 })
 
+
+
+
 //Rick factories below here ^O^/
+.factory('FocusedRestaurant', function() {
+  function getFocusedRestaurant(data) {
+    data = 'test data';
+    console.log('Get Focused Restaurant called');
+    return data;
+  }
+
+  return {
+    getFocusedRestaurant: getFocusedRestaurant
+  };
+});

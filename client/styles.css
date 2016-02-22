@@ -1,4 +1,63 @@
+body {
+  padding-left: 20px;
+}
+
 .restViewPhoto {
   width: 30%;
   height: 30%;
+}
+
+.restViewHeader {
+  padding-top: 20px;
+}
+
+.googleBlue {
+  background-color: #4285F4;
+}
+
+.lightText {
+  color: #eeeeee;
+}
+
+.restaurantInfo {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.waitTimeButtons {
+  height: 100px;
+}
+
+#photoWrapper {
+  height: 350px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#myImage {
+  position: relative;
+    top: -30%;
+    zoom: 3;  //increase if you have very small images
+    display: block;
+    margin: auto;
+
+    /*height: 10%;*/
+    /*max-height: 10%;*/
+
+    width: auto;
+    max-width: 100%;
+}
+
+#restViewPhoto {
+  height: 350px;
+  width: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#currWait {
+  background-color: #888;
+  height: 50px;
+  width: 100%;
 }

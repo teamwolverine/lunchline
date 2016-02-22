@@ -1,30 +1,52 @@
  <!-- Main View page for the detailed restaurant info -->
-<div id="restViewWrapper">
+<div id="restViewWrapper" ng-controller="restCtrl">
 
   <!-- Photo Or Map, TBD -->
   <div class="row">
-    <div class="col-sm-12"><img src="assets/dummyPhoto.jpg" class="img-rounded center-block restViewPhoto"></div>
-  </div>
+    <div id="photoWrapper">
+      <img src="assets/dummyPhoto.jpg" class="" id="myImage">
+    </div>
+<!--     <div id="restViewPhoto">
+    </div>
+ -->  </div>
 
   <!-- Main Restaurnt Info -->
-  <div class="row blue">
-    <div class="col-sm-12">Restaurant Info</div>
+  <div class="row .restViewHeader googleBlue lightText">
+    <div class="col-sm-12 restaurantInfo">
+      <h1>{{ restaurant.name }}</h1>
+      <br>
+      <h3>Rating : {{ restaurant.rating }} - Price: {{ restaurant.price }}</h3>
+      <br>
+      <h3>Category : {{ restaurant.category }}</h3>
+    </div>
   </div>
 
   <!-- Address, Hours, Etc -->
   <div class="row">
-    <div class="col-sm-12">Address and Hours</div>
+    <ul class="list-group">
+      <li class="list-group-item"><h2>Address : {{ restaurant.address }}</h2></li>
+      <li class="list-group-item">CURRENT WAIT TIME : {{ restaurant.waitTime }}</li>
+      <li class="list-group-item"><div id="currWait" ng-style={{waitColor}}></div></li>
+    </ul>
   </div>
 
   <!-- Wait Time -->
-  <div class="row">
-    <div class="col-sm-12 center-block">
+<!--   <div class="row center-block">
+    <div class="col-sm-12">
       <div class="btn-group btn-group-lg">
         <button type="button" class="btn btn-primary">Short</button>
         <button type="button" class="btn btn-primary">Medium</button>
         <button type="button" class="btn btn-primary">Long</button>
       </div>
     </div>
+  </div> -->
 
+  <div class="btn-group btn-group-justified waitTimeButtons">
+    <a href class="btn btn-default" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'>SHORT</a>
+    <a href class="btn btn-default" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'>MEDIUM</a>
+    <a href class="btn btn-default" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'>LONG</a>
   </div>
+
 <div>
+
+
