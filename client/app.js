@@ -1,4 +1,4 @@
-var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap'])
+var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-angular-ui'])
 //UI router setup
 .config(function ($stateProvider, $urlRouterProvider) {
    $stateProvider
@@ -8,7 +8,8 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap'])
    })
    .state('restView', {
       url: '/restView',
-      templateUrl: './app/restView/rest.html'
+      templateUrl: './app/restView/rest.html',
+      controller: 'restCtrl'
    })
    .state('listView', {
       url: '/listView',
