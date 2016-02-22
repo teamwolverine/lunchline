@@ -4,11 +4,11 @@
   <!-- Photo Or Map, TBD -->
   <div class="row">
     <div id="photoWrapper">
-      <img src="assets/dummyPhoto.jpg" class="" id="myImage">
+      <span id="photoSpan"><img src="assets/dummyPhoto.jpg" class="" id="myImage"></span>
     </div>
 <!--     <div id="restViewPhoto">
-    </div>
- -->  </div>
+    </div> -->
+  </div>
 
   <!-- Main Restaurnt Info -->
   <div class="row .restViewHeader googleBlue lightText">
@@ -25,8 +25,8 @@
   <div class="row">
     <ul class="list-group">
       <li class="list-group-item"><h2>Address : {{ restaurant.address }}</h2></li>
-      <li class="list-group-item">CURRENT WAIT TIME : {{ restaurant.waitTime }}</li>
-      <li class="list-group-item"><div id="currWait" ng-style={{waitColor}}></div></li>
+      <li class="list-group-item">Estimated Wait Time : {{ waitString }}</li>
+      <li class="list-group-item"><div id="currWait"></div></li>
     </ul>
   </div>
 
@@ -42,9 +42,9 @@
   </div> -->
 
   <div class="btn-group btn-group-justified waitTimeButtons">
-    <a href class="btn btn-default" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'>SHORT</a>
-    <a href class="btn btn-default" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'>MEDIUM</a>
-    <a href class="btn btn-default" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'>LONG</a>
+    <a href class="btn btn-default transparent" id="shortWaitDiv" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'>SHORT</a>
+    <a href class="btn btn-default transparent" id="medWaitDiv" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'>MEDIUM</a>
+    <a href class="btn btn-default transparent" id="longWaitDiv" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'>LONG</a>
   </div>
 
 <div>

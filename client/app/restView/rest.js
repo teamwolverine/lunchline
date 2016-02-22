@@ -12,19 +12,20 @@ myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
       waitTime : ''
     };
 
+
     // Test function to get grab first restaurant from database
     Data.getData()
       .then(function(fetchedData) {
         console.log('++GOT DATA,', fetchedData);
-        $scope.list = fetchedData.data;
+        $scope.list = fetchedData;
 
-        $scope.restaurant.name = $scope.list[0].name;
-        $scope.restaurant.category = $scope.list[0].types[0];
-        $scope.restaurant.rating = $scope.list[0].rating;
-        $scope.restaurant.address = $scope.list[0].vicinity;
-        $scope.restaurant.waitTime = $scope.list[0].wait;
+        $scope.restaurant.name = $scope.list[0].restaurant.name;
+        $scope.restaurant.category = $scope.list[0].restaurant.types[0];
+        $scope.restaurant.rating = $scope.list[0].restaurant.rating;
+        $scope.restaurant.address = $scope.list[0].restaurant.vicinity;
+        $scope.restaurant.waitTime = $scope.list[0].restaurant.wait;
 
-        var price = $scope.list[0].price_level;
+        var price = $scope.list[0].restaurant.price_level;
         var dollarSigns = '';
 
         for (var i = 0; i <  price; i++) {
@@ -32,14 +33,18 @@ myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
         }
 
         $scope.restaurant.price = dollarSigns;
+        console.log($scope.restaurant.waitTime);
 
         switch($scope.restaurant.waitTime) {
-          case 'red':
-            $scope.waitColor = 'background-color: red';
+          case 'red':;
+            angular.element(document.querySelector('#currWait')).addClass('red');
+            $scope.waitString = '> 1 Hour';
             break;
           case 'yellow':
+            angular.element(document.querySelector('#currWait')).addClass('yellow');
             break;
           case 'green':
+            angular.element(document.querySelector('#currWait')).addClass('green');
             break;
         }
 

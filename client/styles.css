@@ -2,11 +2,6 @@ body {
   padding-left: 20px;
 }
 
-.restViewPhoto {
-  width: 30%;
-  height: 30%;
-}
-
 .restViewHeader {
   padding-top: 20px;
 }
@@ -28,36 +23,67 @@ body {
   height: 100px;
 }
 
+/*#restViewPhoto {
+  width: 100%;
+  background-image: url('assets/dummyPhoto.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size : 100%;
+  overflow: hidden;
+  height: 500px;
+}*/
+
 #photoWrapper {
   height: 350px;
   width: 100%;
   overflow: hidden;
 }
 
-#myImage {
+#photoSpan {
   position: relative;
-    top: -30%;
-    zoom: 3;  //increase if you have very small images
-    display: block;
-    margin: auto;
-
-    /*height: 10%;*/
-    /*max-height: 10%;*/
-
-    width: auto;
-    max-width: 100%;
-}
-
-#restViewPhoto {
-  height: 350px;
-  width: 100%;
+  display: block;
+  width: 100%;  /* Change this */
+  height: 350px; /* Change this */
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
+
+#myImage {
+  position: absolute;
+  top: -40%;
+  width: 100%;
+}
+
 
 #currWait {
-  background-color: #888;
   height: 50px;
   width: 100%;
+}
+
+#longWaitDiv {
+  background-color: #d9534f;
+}
+
+#medWaitDiv {
+  background-color: #f0ad4e;
+}
+
+#shortWaitDiv {
+  background-color: #5cb85c;
+}
+
+.transparent {
+  opacity:.6;
+}
+
+.red {
+  background-color: #d9534f;
+}
+
+.yellow {
+  background-color: #f0ad4e;
+}
+
+.green {
+  background-color: #5cb85c;
 }
