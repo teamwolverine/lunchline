@@ -1,10 +1,18 @@
-body {
-  padding-left: 30px;
-  padding-right: 30px;
+h1, h2 {
+  margin: 10px 0px;
 }
 
-.restViewHeader {
-  padding-top: 20px;
+.center-text {
+  text-align: center;
+}
+
+#restViewMap {
+  height: 500px;
+  padding: 0px 15px;
+}
+
+.restaurantInfo {
+  padding: 40px 30px;
 }
 
 .googleBlue {
@@ -15,76 +23,38 @@ body {
   color: #eeeeee;
 }
 
-.restaurantInfo {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.list-group {
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
-.waitTimeButtons {
-  height: 100px;
-}
-
-/*#restViewPhoto {
-  width: 100%;
-  background-image: url('assets/dummyPhoto.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size : 100%;
-  overflow: hidden;
-  height: 500px;
-}*/
-
-#photoWrapper {
-  height: 350px;
-  width: 100%;
-  overflow: hidden;
-}
-
-#photoSpan {
-  position: relative;
-  display: block;
-  width: 100%;  /* Change this */
-  height: 350px; /* Change this */
-  overflow: hidden;
-}
-
-#myImage {
-  position: absolute;
-  top: -40%;
-  width: 100%;
-}
-
 
 #currWait {
   height: 100px;
   width: 100%;
 }
 
-#longWaitDiv {
-  background-color: #d9534f;
+.waitTimeButtons {
+  height: 150px;
+  padding: 0px 15px;
 }
 
-#medWaitDiv {
+.green, #shortWait {
+  background-color: #5cb85c;
+}
+
+.yellow, #medWait {
   background-color: #f0ad4e;
 }
 
-#shortWaitDiv {
-  background-color: #5cb85c;
+.red, #longWait {
+  background-color: #d9534f;
 }
 
 .transparent {
-  opacity:.6;
+  opacity: .7;
 }
 
-.red {
-  background-color: #d9534f;
-}
-
-.yellow {
-  background-color: #f0ad4e;
-}
-
-.green {
-  background-color: #5cb85c;
+.btn-group>.btn-default.active, .btn-group>.btn-default.active:focus {
+  opacity: 1;
+  color: #111;
 }
