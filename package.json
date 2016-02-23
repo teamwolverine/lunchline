@@ -12,6 +12,7 @@
     "google-locations": "^0.2.0",
     "googleplaces": "^0.6.0",
     "mongoose": "^4.4.4",
+    "ngmap": "^1.17.0",
     "q": "^1.4.1"
   },
   "devDependencies": {},
