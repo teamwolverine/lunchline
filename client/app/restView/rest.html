@@ -3,10 +3,11 @@
 
   <!-- Photo Or Map, TBD -->
   <div class="row">
-    <div id="photoWrapper">
-      <span id="photoSpan"><img src="assets/dummyPhoto.jpg" class="" id="myImage"></span>
+    <div class="map" map-lazy-load="https://maps.google.com/maps/api/js">
+     <ng-map center="{{ restaurant.lat }},{{ restaurant.lng }}" zoom="15"></ng-map>
     </div>
-<!--     <div id="restViewPhoto">
+<!--     <div id="photoWrapper">
+      <span id="photoSpan"><img src="assets/dummyPhoto.jpg" class="" id="myImage"></span>
     </div> -->
   </div>
 
@@ -15,7 +16,7 @@
     <div class="col-sm-12 restaurantInfo">
       <h1>{{ restaurant.name }}</h1>
       <br>
-      <h3>Rating : {{ restaurant.rating }} - Price: {{ restaurant.price }}</h3>
+      <h3>{{ restaurant.rating }} - {{ starString }} - Price: {{ restaurant.price }}</h3>
       <br>
       <h3>Category : {{ restaurant.category }}</h3>
     </div>
@@ -25,7 +26,7 @@
   <div class="row">
     <ul class="list-group">
       <li class="list-group-item"><h2>Address : {{ restaurant.address }}</h2></li>
-      <li class="list-group-item">Estimated Wait Time : {{ waitString }}</li>
+      <li class="list-group-item"><h2>Estimated Wait Time : {{ waitString }}</h2></li>
       <li class="list-group-item"><div id="currWait"></div></li>
     </ul>
   </div>
@@ -40,6 +41,7 @@
       </div>
     </div>
   </div> -->
+  <h2 class="center-block"> Check In </h2>
 
   <div class="btn-group btn-group-justified waitTimeButtons">
     <a href class="btn btn-default transparent" id="shortWaitDiv" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'>SHORT</a>
