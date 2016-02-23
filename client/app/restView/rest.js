@@ -15,47 +15,6 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       waitTime : ''
     };
 
-    Data.clickedItem = {
-         "wait" : "red",
-         "geometry" : {
-            "location" : {
-               "lat" : 34.017917,
-               "lng" : -118.4892147
-            }
-         },
-         "id" : "73a9771ad9e10b6b50763f9332d81e5a90734f52",
-         "name" : "Bay Cities Italian Deli & Bakery",
-         "opening_hours" : {
-            "open_now" : true,
-            "weekday_text" : []
-         },
-         "photos" : [
-            {
-               "height" : 3264,
-               "html_attributions" : [
-                  "\u003ca href=\"https://maps.google.com/maps/contrib/115315553077382023272/photos\"\u003eMelanie Galuten\u003c/a\u003e"
-               ],
-               "photo_reference" : "CmRdAAAATx7w5dBqSdLWt5QTpyXGE3TlAghips8m-gstnvLipIxe82Jd0bgWRMyquVaOVM06aHpB7xd9Nq18iSL3WqeOYAJXn3EpruO9OyVGZ2QalaSnXy_b1GJbinjxJEMFBRlxEhDp6O8RvJCqZH5rfE5mtZxAGhSX4oSSSBMSYBNxotjF3O0t8uklsw",
-               "width" : 2448
-            }
-         ],
-         "place_id" : "ChIJ9_90dc2kwoARcBMb3bHJqpc",
-         "price_level" : 1,
-         "rating" : 4.3,
-         "reference" : "CoQBdAAAAMjol9rrPD_xwI3FNoCBGLFU2xe_Ns0x0ZwTwTqfFXj6cg-lNG_epsHpuatKxZtyESUE05sINlDkyNR0cyz_vBVC9Ay0lqKlDrrcvvD15gDAE4pHYUr50RbSsB4njjMKKvaIv7kSWoYkl6qnXc09wygOsaRFsrL_66mBY2gc3U_zEhDYGqNUccEGUrcezQtEPkiDGhRjYzNDIc8ddWKnuN7mubOEgnH-Zg",
-         "scope" : "GOOGLE",
-         "types" : [
-            "bakery",
-            "restaurant",
-            "liquor_store",
-            "store",
-            "food",
-            "point_of_interest",
-            "establishment"
-         ],
-         "vicinity" : "1517 Lincoln Boulevard, Santa Monica"
-      };
-
     if (Data.clickedItem.id) {
       // Get data from clicked item
       $scope.restaurant.place_id = Data.clickedItem.place_id;
