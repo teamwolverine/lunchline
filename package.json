@@ -13,7 +13,8 @@
     "googleplaces": "^0.6.0",
     "mongoose": "^4.4.4",
     "ngmap": "^1.17.0",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {
