@@ -1,8 +1,7 @@
 var cors = require('cors');
 var Q = require('q');
 var Restaurant = require('./restModel.js');
-<<<<<<< HEAD
-var PlaceSearch = require('google-locations'); 
+var PlaceSearch = require('google-locations');
 var config = require('../config.js');
 var lat = 34.0192676;
 var lng = -118.4965371;
@@ -17,7 +16,7 @@ exports.getRestaurants = function(req, res, next){
       }
       console.log("results: ", response.results);
       for(var i = 0; i < response.results.length; i++){
-      console.log("+++ line 19: ", response.results[i].place_id)  
+      console.log("+++ line 19: ", response.results[i].place_id)
       Restaurant.findOne({ place_id: response.results[i].place_id }, function(err, newModel){
         if(err){
           console.log("restaurant already exists")
@@ -43,14 +42,14 @@ exports.getRestaurants = function(req, res, next){
             else {
               closestRestaurants.push(restaurant)
             }
-          })  
+          })
         }
       })
     }
-    res.json(closestRestaurants); 
-  })     
-},    
-=======
+    res.json(closestRestaurants);
+  })
+},
+
 
 //helper functions for http requests
 //headers for when places
@@ -70,11 +69,10 @@ exports.getRestaurants = function(req, res, next){
       // add it to the database
       // add a wait property
   //return the response obj
->>>>>>> 8e3b0a6b6d4d08f9fffbfda4c74f5d277c52fc37
+
 
 //get request on page load to grab local
 //restaurants from database
-<<<<<<< HEAD
 // exports.fetchRestaurants = function(req, resp, next){
 //   console.log("fetch is running")
 //   var allItems = Q.nbind(Restaurant.find, Restaurant)
@@ -87,7 +85,6 @@ exports.getRestaurants = function(req, res, next){
 //     next(error);
 //   });
 // },
-=======
 exports.fetchRestaurants = function(req, resp, next){
   //query db to get all our restaurants
   // console.log("fetch is running")
@@ -100,7 +97,6 @@ exports.fetchRestaurants = function(req, resp, next){
     next(error);
   });
 },
->>>>>>> 8e3b0a6b6d4d08f9fffbfda4c74f5d277c52fc37
 
 //post request to update a wait time
 exports.updateWait = function(req, resp, next){
@@ -112,16 +108,13 @@ exports.updateWait = function(req, resp, next){
   console.log("+++ query", query)
   var update = {wait: req.body.wait};
   console.log("+++ update", update);
-  var options = {upsert: true}; 
+  var options = {upsert: true};
   Restaurant.findOneAndUpdate(query, update, options, function(err, restaurant) {
       if (err) {
         throw err;
-<<<<<<< HEAD
-      }    
+      }
     resp.json(restaurant.wait);
-=======
       }
     resp.json(restaurant);
->>>>>>> 8e3b0a6b6d4d08f9fffbfda4c74f5d277c52fc37
     })
   }
