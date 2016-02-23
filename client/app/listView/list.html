@@ -1,24 +1,10 @@
 <div ng-controller="listCtrl">
-      <ul>
-         <li ng-repeat="restaurant in list track by $index">
-            <div>
-               {{restaurant.name}},
-               {{restaurant.color}}
-            </div>
-         </li>
-      </ul>
+   <div ng-repeat="restaurant in data track by $index">
+      <a ui-sref='restView'>
+      <div ng-click='transferEvent(restaurant.restaurant)'>
+         {{restaurant.restaurant.name}},
+         {{restaurant.restaurant.wait}}
+      </div>
+      <a>
+   </div>
 </div>
-
-<!-- $scope.lat = 34.019431;
-   $scope.long = -118.494357;
-   $scope.burgerPlaces = [0,1,2,3,4];
-   $http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + $scope.lat + "," + $scope.long + "&radius=1609.34&keyword=burgers&key=AIzaSyDY0mJs_icQ_6poJ7beU2F6GIp0AjGcYKI")
-   .then(function(resp){
-      console.log(resp.data);
-         for(var i = 0; i < 5; i++) {
-            $scope.burgerPlaces[i] = resp.data.results[i];
-         }
-      },
-      function(resp){
-         console.log("cannot retrieve data")
-   }); -->
