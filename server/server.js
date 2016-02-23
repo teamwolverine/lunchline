@@ -4,7 +4,6 @@ var app = express();
 var cors = require('cors');
 var Q = require('q');
 var bodyParser = require('body-parser');
-var config = require('./config.js')
 //middleware = bodyParser.json
 //require routes
 
