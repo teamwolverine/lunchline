@@ -4,11 +4,7 @@ var app = express();
 var cors = require('cors');
 var Q = require('q');
 var bodyParser = require('body-parser');
-var config = require('./config.js')
-//middleware = bodyParser.json
-//require routes
-
-//insert mongolabs url here
+var config = require('./config.js');
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://'+config.username+':'+config.password+'@ds011158.mongolab.com:11158/lunchline-js')
@@ -17,5 +13,5 @@ mongoose.connect('mongodb://'+config.username+':'+config.password+'@ds011158.mon
 app.use(express.static(__dirname + '/../client/'));//serving all static files to our client folder
 app.use('/node', express.static(__dirname + '/../node_modules/'));
 app.use('/bower', express.static(__dirname + '/../bower_components/'));
-// app.use('/node_modules', express.static(__dirname + '/node_modules/'));
+
 module.exports = app;
