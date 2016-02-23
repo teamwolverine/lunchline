@@ -64,12 +64,23 @@ myApp
 
 
 //Rick factories below here ^O^/
-.factory('PostData', function() {
+.factory('PostData', function($http) {
 
-  function updateWait() {
+  function updateWait(objToSend) {
 
     // PUT
     // /api/update (wait, place_id)
+
+    $http({
+      method: 'PUT',
+      url: '/api/update',
+      data: objToSend
+    }).then(function successCallback(response) {
+      console.log('PUT: Sent ' + JSON.stringify(objToSend) + ' successfully');
+      console.log('Response from server is : ', response);
+    }, function errorCallback(response) {
+      console.log('ERROR on Put Request!');
+    });
 
   }
 
