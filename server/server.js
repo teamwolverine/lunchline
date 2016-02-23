@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 //require routes
 
 //insert mongolabs url here
+var config = require('./config.js');
 var mongoose = require('mongoose');
 
 if(!process.env.USERNAME){
