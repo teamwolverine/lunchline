@@ -45,8 +45,6 @@ myApp
    //calculate teh difference between current location
    //and fetched location data
    //ROC location:
-   $scope.lat = 34.019431;
-   $scope.long = -118.494357;
 })
 
 
