@@ -17,7 +17,7 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
 
     if (Data.clickedItem.id) {
       // Get data from clicked item
-      $scope.restaurant.id = Data.clickedItem._id;
+      $scope.restaurant.place_id = Data.clickedItem.place_id;
       $scope.restaurant.name = Data.clickedItem.name;
       $scope.restaurant.category = Data.clickedItem.types[0];
       $scope.restaurant.address = Data.clickedItem.vicinity;
@@ -68,9 +68,15 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       }
     }
 
-    $scope.clickedButton = function(wait) {
-      console.log('Button clicked', wait);
-      PostData.updateWait($scope.restaurant.id, wait);
+    $scope.updateWait = function(wait) {
+      console.log('Update Wait called : ', wait);
+
+      var sendObj = {
+        place_id: $scope.restaurant.place_id,
+        wait: wait
+      }
+
+      PostData.updateWait(sendObj);
     }
 
     // Test function to get grab first restaurant from database
