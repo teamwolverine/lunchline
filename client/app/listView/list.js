@@ -1,6 +1,6 @@
 //Retrieve information from the server and serve it in HTML.
 myApp
-.controller('listCtrl', function($scope, Data, $http, $stateParams, $state) {
+.controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
    $scope.data = [];
    $scope.userLocation = {};
    $scope.geolocation = function() {
@@ -17,24 +17,22 @@ myApp
          }
 
          function locErr (err) {
+            $state.go('errorView');
             switch(err.code) {
                case err.PERMISSION_DENIED:
                   console.log("User denied the request for Geolocation.");
-                  $state.go('errorView');
                   break;
                case err.POSITION_UNAVAILABLE:
                   console.log("Location information is unavailable.");
-                  $state.go('errorView');
                   break;
                case err.UNKNOWN_ERROR:
                   console.log("An unknown error occurred.");
-                  $state.go('errorView');
                   break;
             }
          }
       }
    }
-   
+
    $scope.transferEvent = function(obj) {
       Data.clickedItem = obj;
    }
@@ -44,6 +42,11 @@ myApp
       Data.getData($scope.userLocation)
       .then(function(fetchedData) {
          $scope.data = fetchedData;
+
+         for(var restaurant in $scope.data) {
+            destination = restaurant.restaurant.location;
+            restaurant.restaurant.dist = distance.calc($scope.userLocation, destination)
+         }
       })
    }
 
