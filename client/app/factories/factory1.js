@@ -1,50 +1,62 @@
 myApp
-.factory('Http', function($http) {
-   function get(url) {
-      // console.log('Get request');
-    //Determine URL Address and insert here.
-    return $http.get(url)
-   }
-   return {
-    get : get
-   }
-}).factory('Data', function(Http) {
-   //Using the Http factory, fetch the data.
+// .factory('Http', function($http) {
+//    function post(url, userLoc) {
+//      return $http.post(url, userLoc)
+//    }
+//    return {
+//      post : post
+//    }
+//})
+.factory('Data', function($http) {
    var getPromise;
-   function delay(){
-      // console.log('Assigning promise');
-      getPromise = Http.get('/api');
+   var promise = function(userLoc){
+      getPromise = $http.post('/api', userLoc);
    }
-   function fetchData(){
-      // console.log('Returning promise');
+
+   var fetchData = function (){
       return getPromise;
    }
 
-   var getData = function () {
-      delay();
+   var getData = function (userLoc) {
+      promise(userLoc);
       return fetchData()
       .then(function(data) {
-         var filePath = data.data;
-         return filePath.map(function(restaurant) {
+         return data.data.map(function(restaurant) {
             return {
                restaurant: restaurant
-               }
-            })
+            }
          })
-      };
+      })
+   };
 
-   // var clickedItem = function (obj) {
-   //    return obj;
-   // }
    var clickedItem = {};
+
    return {
       getData : getData,
       clickedItem : clickedItem
    }
-}).factory('CalcDistance', function(Data) {
-   //calculate teh difference between current location
-   //and fetched location data
-   //ROC location:
+}).factory('CalcDistance', function(userLoc, destinLoc) {
+   //Expects objects with properties 'lat & long'
+   var lat1 = userLoc.lat;
+   var long1 = userLoc.long;
+   var lat2 = destinLoc.lat;
+   var long2 = destinLoc.long;
+   console.log('Lat1: ' + lat1 + '\nLong1: ' + long1 + '\nLat2: ' + lat2 + '\nLong2: ' + long2);
+   var deg2rad = function (deg) {
+     return deg * (Math.PI/180)
+   }
+   var R = 6371; // Radius of Earth
+   var dLat = deg2rad(lat2-lat1);
+   var dLon = deg2rad(lon2-lon1);
+   var a =
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ;
+   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+   var d = R * c;
+   var m = d * 0.621371;
+   return Math.round(m * 10) / 10
 })
 
 
