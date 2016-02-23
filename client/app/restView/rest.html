@@ -44,10 +44,15 @@
   </div> -->
   <h2 class="center-block"> Check In </h2>
 
+
   <div class="btn-group btn-group-justified waitTimeButtons">
-    <a href class="btn btn-default transparent" id="shortWaitDiv" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'><h1>< 10 Mins</h1></a>
-    <a href class="btn btn-default transparent" id="medWaitDiv" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'><h1>10 - 45 Mins</h1></a>
-    <a href class="btn btn-default transparent" id="longWaitDiv" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'><h1>> 45 Mins</h1></a>
+
+    <div class="btn btn-default" id="shortWaitDiv" ng-click="clickedButton('green')" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'><h1>< 10 Mins</h1></div>
+
+    <a href class="btn btn-default transparent" id="medWaitDiv" ng-click="clickedButton('yellow')" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'><h1>10 - 45 Mins</h1></a>
+
+    <a href class="btn btn-default transparent" id="longWaitDiv" ng-click="clickedButton('red')" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'><h1>> 45 Mins</h1></a>
+
   </div>
 <div>
 </div>

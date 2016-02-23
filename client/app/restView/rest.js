@@ -1,6 +1,6 @@
 /* Handles controller code for main restaurant info */
 
-myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
+myApp.controller('restCtrl', function($scope, Data, PostData) {
 
     $scope.restaurant = {
       id: '',
@@ -66,6 +66,11 @@ myApp.controller('restCtrl', function($scope, Data, FocusedRestaurant) {
           $scope.waitString = '< 10 Mins';
           break;
       }
+    }
+
+    $scope.clickedButton = function(wait) {
+      console.log('Button clicked', wait);
+      PostData.updateWait($scope.restaurant.id, wait);
     }
 
     // Test function to get grab first restaurant from database

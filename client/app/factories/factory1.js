@@ -53,14 +53,16 @@ myApp
 
 
 //Rick factories below here ^O^/
-.factory('FocusedRestaurant', function() {
-  function getFocusedRestaurant(data) {
-    data = 'test data';
-    console.log('Get Focused Restaurant called');
-    return data;
+.factory('PostData', function() {
+
+  function updateWait() {
+
+    // PUT
+    // /api/update (wait, place_id)
+
   }
 
   return {
-    getFocusedRestaurant: getFocusedRestaurant
+    updateWait: updateWait
   };
 });
