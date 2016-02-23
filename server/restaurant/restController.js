@@ -19,10 +19,7 @@ exports.getRestaurants = function(req, res, next){
       console.log("+++ line 19: ", response.results[i].place_id)
       Restaurant.findOne({ place_id: response.results[i].place_id }, function(err, newModel){
         if(err){
-          console.log("restaurant already exists")
-          closestRestaurants.push(newModel);
-        }
-        else {
+          console.log(err);
           var restaurant = new Restaurant({
             wait: "blue",
             geometry: {location: {lat: response.results[i].geometry.location.lat, lng: response.results[i].geometry.location.lng}},
@@ -40,39 +37,23 @@ exports.getRestaurants = function(req, res, next){
               throw err;
             }
             else {
+              console.log("+++ line 38 restaurant: ", restaurant)
               closestRestaurants.push(restaurant)
             }
+
           })
         }
-      })
+        else {
+          console.log("+++ line 44 model: ", newModel)
+          closestRestaurants.push(newModel)  
+        }
+      }) 
     }
     res.json(closestRestaurants);
-  })
-},
+    console.log("+++ line 49 closestRestaurants: ", closestRestaurants) 
+  })     
+},    
 
-
-//helper functions for http requests
-//headers for when places
-// var headers = {
-//   "access-control-allow-origin": "*",
-//   "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
-//   "access-control-allow-headers": "content-type, accept",
-//   "access-control-max-age": 10, // Seconds.
-//   'Content-Type': "text/html"
-// };
-
-//on page load ping google places (POST MVP)
-  //query the database for googles place id
-    //if found
-      // retrieve that entry from the db and add to resp
-    //if not found
-      // add it to the database
-      // add a wait property
-  //return the response obj
-
-
-//get request on page load to grab local
-//restaurants from database
 // exports.fetchRestaurants = function(req, resp, next){
 //   console.log("fetch is running")
 //   var allItems = Q.nbind(Restaurant.find, Restaurant)
@@ -85,6 +66,7 @@ exports.getRestaurants = function(req, res, next){
 //     next(error);
 //   });
 // },
+
 exports.fetchRestaurants = function(req, resp, next){
   //query db to get all our restaurants
   // console.log("fetch is running")
@@ -112,8 +94,6 @@ exports.updateWait = function(req, resp, next){
   Restaurant.findOneAndUpdate(query, update, options, function(err, restaurant) {
       if (err) {
         throw err;
-      }
-    resp.json(restaurant.wait);
       }
     resp.json(restaurant);
     })
