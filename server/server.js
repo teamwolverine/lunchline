@@ -4,10 +4,6 @@ var app = express();
 var cors = require('cors');
 var Q = require('q');
 var bodyParser = require('body-parser');
-//middleware = bodyParser.json
-//require routes
-
-//insert mongolabs url here
 var config = require('./config.js');
 var mongoose = require('mongoose');
 
