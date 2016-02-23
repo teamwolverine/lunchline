@@ -11,7 +11,14 @@ var config = require('./config.js')
 //insert mongolabs url here
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://'+config.username+':'+config.password+'@ds011158.mongolab.com:11158/lunchline-js')
+if(!process.env.USERNAME){
+  var config = require('./config.js')
+}
+
+var mongooseUsername = process.env.USERNAME || config.username;
+var mongoosePassword = process.env.PASSWORD || config.password;
+
+mongoose.connect('mongodb://'+mongooseUsername+':'+mongoosePassword+'@ds011158.mongolab.com:11158/lunchline-js')
 
 //where to serve static files
 app.use(express.static(__dirname + '/../client/'));//serving all static files to our client folder
