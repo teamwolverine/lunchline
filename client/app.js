@@ -1,4 +1,4 @@
-var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-angular-ui'])
+var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-angular-ui', 'ngMap'])
 //UI router setup
 .config(function ($stateProvider, $urlRouterProvider) {
    $stateProvider
