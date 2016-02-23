@@ -3,8 +3,6 @@ var mongoose = require('mongoose');
 
 var restaurantSchema = new mongoose.Schema({
   wait: String,
-  // position: Number;
-  // last_updated: {};
   geometry: {location: {lat: String, lng: String}},
   id: String,
   name: String,
@@ -17,7 +15,7 @@ var restaurantSchema = new mongoose.Schema({
   place_id: String,
   price_level: Number,
   rating: Number,
-  types : [],
+  types : String,
   vicinity: String
 })
 
