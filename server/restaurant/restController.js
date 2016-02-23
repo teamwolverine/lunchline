@@ -1,7 +1,7 @@
 var cors = require('cors');
 var Q = require('q');
 var Restaurant = require('./restModel.js');
-var PlaceSearch = require('google-locations'); 
+var PlaceSearch = require('google-locations');
 var config = require('../config.js');
 var lat = 34.0192676;
 var lng = -118.4965371;
@@ -15,7 +15,8 @@ exports.getRestaurants = function(req, res, next){
         throw err;
       }
       console.log("results: ", response.results);
-      for(var i = 0; i < response.results.length; i++){  
+      for(var i = 0; i < response.results.length; i++){
+      console.log("+++ line 19: ", response.results[i].place_id)
       Restaurant.findOne({ place_id: response.results[i].place_id }, function(err, newModel){
         if(err){
           console.log(err);
@@ -39,7 +40,8 @@ exports.getRestaurants = function(req, res, next){
               console.log("+++ line 38 restaurant: ", restaurant)
               closestRestaurants.push(restaurant)
             }
-          }) 
+
+          })
         }
         else {
           console.log("+++ line 44 model: ", newModel)
@@ -65,6 +67,18 @@ exports.getRestaurants = function(req, res, next){
 //   });
 // },
 
+exports.fetchRestaurants = function(req, resp, next){
+  //query db to get all our restaurants
+  // console.log("fetch is running")
+  var allItems = Q.nbind(Restaurant.find, Restaurant)
+  //get all the restaurant listings
+  allItems({}).then(function(restaurants){
+    //respond with a json
+    resp.json(restaurants);
+  }).fail(function(error){
+    next(error);
+  });
+},
 
 //post request to update a wait time
 exports.updateWait = function(req, resp, next){
@@ -76,11 +90,11 @@ exports.updateWait = function(req, resp, next){
   console.log("+++ query", query)
   var update = {wait: req.body.wait};
   console.log("+++ update", update);
-  var options = {upsert: true}; 
+  var options = {upsert: true};
   Restaurant.findOneAndUpdate(query, update, options, function(err, restaurant) {
       if (err) {
         throw err;
-      }    
-    resp.json(restaurant.wait);
+      }
+    resp.json(restaurant);
     })
   }
