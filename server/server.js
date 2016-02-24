@@ -4,12 +4,10 @@ var app = express();
 var cors = require('cors');
 var Q = require('q');
 var bodyParser = require('body-parser');
-var config = require('./config.js');
 var mongoose = require('mongoose');
-
 if(!process.env.USERNAME){
-  var config = require('./config.js')
-}
+  var config = require('./config.js');
+};
 
 var mongooseUsername = process.env.USERNAME || config.username;
 var mongoosePassword = process.env.PASSWORD || config.password;

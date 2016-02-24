@@ -1,7 +1,9 @@
 var Restaurant = require('./restModel.js');
 var PlaceSearch = require('google-locations');
-var config = require('../config.js');
 var _ = require('underscore');
+if(!process.env.GOOGLEPLACESKEY){
+  var config = require('../config.js');
+};
 
 exports.getRestaurants = function(req, res){
   console.log(req.body);
@@ -17,7 +19,6 @@ exports.getRestaurants = function(req, res){
       _.each(response.results, function(item){
         Restaurant.findOne({id: item.id}, function(err, obj){
           if(obj === null){
-            //console.log("+++line 18 - obj not found")
             var restaurant = new Restaurant({
               wait: "blue",
               geometry: {location: {lat: item.geometry.location.lat, lng: item.geometry.location.lng}},
@@ -36,36 +37,29 @@ exports.getRestaurants = function(req, res){
               }
               results.push(restaurant)
               if(results.length === 20){
-                //console.log(results)
-                res.json(results); 
-              }  
+                res.json(results);
+              }
             })
           }
           else {
             results.push(obj);
-            //console.log(results.length)
           if(results.length === 20){
-              //console.log(results)
-              res.json(results); 
-            }  
+              res.json(results);
+            }
           }
-        })    
+        })
       })
-    }) 
-},  
+    })
+},
 
-//post request to update a wait time
-exports.updateWait = function(req, res){
-  // console.log("request obj: ", req);
+exports.updateWait = function(req, resp, next){
     console.log("request obj: ", req.body);
-  //query for the obj id
-  var query = {place_id: req.body.place_id}
-  //update the wait time property
-  console.log("+++ query", query)
-  var update = {wait: req.body.wait};
-  console.log("+++ update", update);
-  var options = {upsert: true};
-  Restaurant.findOneAndUpdate(query, update, options, function(err, restaurant) {
+    var query = {place_id: req.body.place_id}
+    console.log("+++ query", query)
+    var update = {wait: req.body.wait};
+    console.log("+++ update", update);
+    var options = {upsert: true};
+    Restaurant.findOneAndUpdate(query, update, options, function(err, restaurant) {
       if (err) {
         throw err;
       }
