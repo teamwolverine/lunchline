@@ -1,5 +1,18 @@
+.logo {
+  width: 15%;
+}
+
 h1, h2 {
   margin: 10px 0px;
+}
+
+.nav {
+  text-align: center;
+}
+
+.nav li {
+  color: ;
+  display: inline-block;
 }
 
 .center-text {
