@@ -3,7 +3,7 @@ var Q = require('q');
 var Restaurant = require('./restModel.js');
 var PlaceSearch = require('google-locations');
 var _ = require('underscore');
-if(!process.env.GOOLEPLACESKEY){
+if(!process.env.GOOGLEPLACESKEY){
   var config = require('../config.js');
 }
 console.log("GOOGLE KEY :", process.env.GOOGLEPLACESKEY);
