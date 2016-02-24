@@ -5,9 +5,14 @@ var PlaceSearch = require('google-locations');
 var _ = require('underscore');
 if(!process.env.GOOGLEPLACESKEY){
   var config = require('../config.js');
-}
+};
+
+exports.test = function(){
+  console.log("I AM A TEST FUNCTION!!!!");
+};
 
 exports.getRestaurants = function(req, res, next){
+  console.log("inside getrestaurants");
   var results = [];
   var locations = new PlaceSearch(process.env.GOOGLEPLACESKEY || config.placesKey);
   locations.search({keyword: 'restaurant', location: [34.0192676, -118.4965371], radius: 1609.34}, function(err, response){
