@@ -1,5 +1,3 @@
-var cors = require('cors');
-var Q = require('q');
 var Restaurant = require('./restModel.js');
 var PlaceSearch = require('google-locations');
 var _ = require('underscore');
@@ -7,12 +5,14 @@ if(!process.env.GOOGLEPLACESKEY){
   var config = require('../config.js');
 };
 
-
-exports.getRestaurants = function(req, res, next){
-  console.log("inside getrestaurants");
+exports.getRestaurants = function(req, res){
+  console.log(req.body);
+  var lat = req.body.lat;
+  var lng = req.body.long;
   var results = [];
-  var locations = new PlaceSearch(process.env.GOOGLEPLACESKEY || config.placesKey);
-  locations.search({keyword: 'restaurant', location: [34.0192676, -118.4965371], radius: 1609.34}, function(err, response){
+  //console.log("+++line 10 - getRestaurants called")
+  var locations = new PlaceSearch(config.placesKey);
+  locations.search({keyword:'quick food', location: [lat, lng], radius: 1000}, function(err, response){
       if(err){
         throw err;
       }
@@ -52,8 +52,7 @@ exports.getRestaurants = function(req, res, next){
     })
 },
 
-
-exports.updateWait = function(req, resp, next){
+exports.updateWait = function(req, res){
     console.log("request obj: ", req.body);
     var query = {place_id: req.body.place_id}
     console.log("+++ query", query)
@@ -64,6 +63,6 @@ exports.updateWait = function(req, resp, next){
       if (err) {
         throw err;
       }
-    resp.json(restaurant);
+    res.json(restaurant);
     })
   }
