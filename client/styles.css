@@ -1,3 +1,8 @@
+* {
+  font-family: Lato;
+  font-size: 1.1em;
+}
+
 .logo {
   width: 15%;
 }
@@ -14,8 +19,33 @@ h1, h2 {
   display: inline-block;
 }
 
+.list-map {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .center-text {
   text-align: center;
+}
+
+.mainList {
+  text-align: center;
+  margin: 2.5%;
+}
+
+.listItem {
+  width: 85%;
+  color: white;
+  margin: 0 auto;
+  border: 2px solid;
+  border-radius: 5%;
+  padding: 1.5%;
+  opacity: 0.6;
+  font-size: 1em;
+}
+
+.listItem a {
+  text-decoration: none;
 }
 
 #restViewMap {

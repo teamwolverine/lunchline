@@ -1,10 +1,15 @@
 <div>
-   <div ng-repeat="restaurant in data track by $index">
+    <div class="row ngmap">
+      <div class="list-map" map-lazy-load="https://maps.google.com/maps/api/js">
+        <ng-map id="restViewMap" center="{{ userLocation.lat }},{{ userLocation.long }}" zoom="18" style=""></ng-map>
+      </div>
+    </div>
+
+   <div class="mainList" ng-repeat="restaurant in data | orderBy: 'restaurant.dist'">
       <a ui-sref='restView'>
-      <div ng-click='transferEvent(restaurant.restaurant)'>
+      <div class="listItem" ng-style="{'background-color': restaurant.restaurant.wait}" ng-click='transferEvent(restaurant.restaurant)'>
          {{restaurant.restaurant.name}},
-         {{restaurant.restaurant.dist}},
-         {{restaurant.restaurant.wait}}
+         {{restaurant.restaurant.dist}}
       </div>
       <a>
    </div>
