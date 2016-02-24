@@ -6,7 +6,7 @@ if(!process.env.GOOGLEPLACESKEY){
 };
 
 exports.getRestaurants = function(req, res){
-  console.log(req.body);
+  console.log('Receiving a request!', req.body);
   var lat = req.body.lat;
   var lng = req.body.long;
   var results = [];

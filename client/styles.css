@@ -4,7 +4,8 @@
 }
 
 .logo {
-  width: 15%;
+  width: auto;
+  height: auto;
 }
 
 h1, h2 {

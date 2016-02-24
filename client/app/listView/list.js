@@ -14,7 +14,12 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
    });
 
    $scope.restInfo = function () {
-      //Fetch data for that location
+      navigator.geolocation.getCurrentPosition(function(position){
+         $scope.userLocation = {
+            lat: position.coords.latitude,
+            long: position.coords.longitude
+         };
+         console.log($scope.userLocation);
          Data.getData($scope.userLocation, function (fetchedData) {
             //Make a distance property for each restaurant
             for(var i = 0; i < fetchedData.length; i++) {
@@ -22,10 +27,12 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
                   lat: fetchedData[i].restaurant.geometry.location.lat,
                   long: fetchedData[i].restaurant.geometry.location.lng
                };
-            fetchedData[i].restaurant.dist = distance.calc($scope.userLocation, destination);
-            $scope.data = fetchedData;
+               fetchedData[i].restaurant.dist = distance.calc($scope.userLocation, destination);
+               $scope.data = fetchedData;
             }
          });
+      });
+      //Fetch data for that location
    }
 
    $scope.restInfo();
