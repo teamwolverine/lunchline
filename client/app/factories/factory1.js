@@ -13,7 +13,7 @@ myApp
          callback(collection);
       },
          function error(response) {
-            console.log("ERROR: " + response);
+            console.log("ERROR: ", response);
          });
    };
    var clickedItem = {};

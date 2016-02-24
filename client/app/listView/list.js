@@ -26,7 +26,6 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
             $scope.data = fetchedData;
             }
          });
-      });
    }
 
    $scope.restInfo();
