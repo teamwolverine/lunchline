@@ -56,9 +56,6 @@ myApp
 
   function updateWait(objToSend) {
 
-    // PUT
-    // /api/update (wait, place_id)
-
     $http({
       method: 'PUT',
       url: '/api/update',
