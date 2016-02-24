@@ -1,7 +1,5 @@
-//Retrieve information from the server and serve it in HTML.
-myApp
-.controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
-   console.log('called');
+
+myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
    $scope.data = [];
    $scope.userLocation = {};
    $scope.transferEvent = function(obj) {
