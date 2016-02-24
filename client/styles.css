@@ -63,7 +63,11 @@ h1, h2 {
 }
 
 .transparent {
-  opacity: .7;
+  opacity: .8;
+}
+
+.btn-group>.btn-default.active:hover {
+  color: #111;
 }
 
 .btn-group>.btn-default.active, .btn-group>.btn-default.active:focus {
