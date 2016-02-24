@@ -21,7 +21,7 @@
     <!-- Address, Hours, Etc -->
     <div class="row">
       <ul class="list-group">
-        <li class="list-group-item"><h2>{{ restaurant.address }}</h2></li>
+        <li class="list-group-item"><h2><a ng-href = "https://www.google.com/maps/dir/604+Arizona+Ave+Santa+Monica/{{restaurant.address}}">{{ restaurant.address }}</a></h2></li>
         <li class="list-group-item"><h2>Estimated Wait Time: {{ waitString }}</h2></li>
         <li class="list-group-item"><div id="currWait"></div></li>
       </ul>
@@ -40,5 +40,3 @@
 
     </div>
   </div>
-
-
