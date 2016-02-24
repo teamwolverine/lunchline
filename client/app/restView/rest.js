@@ -17,21 +17,23 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
 
     if (Data.clickedItem.id) {
       // Get data from clicked item
-      $scope.restaurant.place_id = Data.clickedItem.place_id;
-      $scope.restaurant.name = Data.clickedItem.name;
+      var item = Data.clickedItem;
 
-      var type = Data.clickedItem.types;
+      $scope.restaurant.place_id = item.place_id;
+      $scope.restaurant.name = item.name;
+
+      var type = item.types;
       var capitalizedType = type.charAt(0).toUpperCase() + type.substring(1);
 
 
       $scope.restaurant.category = capitalizedType;
-      $scope.restaurant.address = Data.clickedItem.vicinity;
-      $scope.restaurant.waitTime = Data.clickedItem.wait;
-      $scope.restaurant.lat = Data.clickedItem.geometry.location.lat;
-      $scope.restaurant.lng = Data.clickedItem.geometry.location.lng;
+      $scope.restaurant.address = item.vicinity;
+      $scope.restaurant.waitTime = item.wait;
+      $scope.restaurant.lat = item.geometry.location.lat;
+      $scope.restaurant.lng = item.geometry.location.lng;
 
       // Get restaurant rating and build string for star display
-      $scope.restaurant.rating = Data.clickedItem.rating;
+      $scope.restaurant.rating = item.rating;
       var whiteStar = String.fromCharCode(9734);
       var blackStar = String.fromCharCode(9733);
       var starArray = [];
@@ -47,7 +49,7 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       $scope.starString = starArray.join('');
 
       // Calculate Price And Convert to Dollar Signs
-      var price = Data.clickedItem.price_level;
+      var price = item.price_level;
       var dollarSigns = '';
 
       for (var i = 0; i <  price; i++) {
