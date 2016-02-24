@@ -6,13 +6,14 @@ var _ = require('underscore');
 if(!process.env.GOOLEPLACESKEY){
   var config = require('../config.js');
 }
+console.log("GOOGLE KEY :", process.env.GOOGLEPLACESKEY);
+console.log("CONFIG USERNAME :", process.env.USERNAME);
 
 exports.getRestaurants = function(req, res, next){
-  console.log(req.body);
+  console.log("INSIDE GETRESTAURANTS");
   var results = [];
   //console.log("+++line 10 - getRestaurants called")
   var locations = new PlaceSearch(process.env.GOOGLEPLACESKEY || config.placesKey);
-  console.log("KEY :", process.env.GOOGLEPLACESKEY);
   locations.search({keyword: 'restaurant', location: [34.0192676, -118.4965371], radius: 1609.34}, function(err, response){
       if(err){
         throw err;
