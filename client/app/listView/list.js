@@ -8,13 +8,15 @@ myApp
       Data.clickedItem = obj;
    }
 
+   navigator.geolocation.getCurrentPosition(function(position){
+      $scope.userLocation = {
+         lat: position.coords.latitude,
+         long: position.coords.longitude
+      };
+   });
+
    $scope.restInfo = function () {
       //Fetch data for that location
-      navigator.geolocation.getCurrentPosition(function(position){
-         $scope.userLocation = {
-               lat: position.coords.latitude,
-               long: position.coords.longitude
-         };
          Data.getData($scope.userLocation, function (fetchedData) {
             //Make a distance property for each restaurant
             for(var i = 0; i < fetchedData.length; i++) {
@@ -24,10 +26,10 @@ myApp
                };
             fetchedData[i].restaurant.dist = distance.calc($scope.userLocation, destination);
             $scope.data = fetchedData;
-            console.log('FetchedData: ', fetchedData);
             }
          });
       });
    }
+
    $scope.restInfo();
 });

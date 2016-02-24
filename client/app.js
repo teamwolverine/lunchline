@@ -4,7 +4,8 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-an
    $stateProvider
    .state('home', {
       url: '/home',
-      templateUrl: './app/listView/list.html'
+      templateUrl: './app/listView/list.html',
+      controller: 'listCtrl'
    })
    .state('restView', {
       url: '/restView',

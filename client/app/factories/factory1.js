@@ -25,7 +25,6 @@ myApp
    var calc = function (userLoc, destinLoc) {
       //Expects objects with properties 'lat & long'
       var lat1 = userLoc.lat, long1 = userLoc.long, lat2 = destinLoc.lat, long2 = destinLoc.long;
-      console.log('Lat1: ' + lat1 + '\nLong1: ' + long1 + '\nLat2: ' + lat2 + '\nLong2: ' + long2);
       var deg2rad = function (deg) {
         return deg * (Math.PI/180)
       }

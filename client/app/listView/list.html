@@ -1,11 +1,12 @@
-<div>
-   <div ng-repeat="restaurant in data track by $index">
+<div class='scrollable'>
+   <div ng-repeat="restaurant in data | orderBy: 'restaurant.dist'" class='scrollabe-content'>
       <a ui-sref='restView'>
-      <div ng-click='transferEvent(restaurant.restaurant)'>
-         {{restaurant.restaurant.name}},
-         {{restaurant.restaurant.dist}},
-         {{restaurant.restaurant.wait}}
-      </div>
+         <div id='restaurant' ng-click='transferEvent(restaurant.restaurant)' ng-style="{'background-color': restaurant.restaurant.wait}">
+            <div class='restWait'></div>
+            <div class='restName'>{{restaurant.restaurant.name}}</div>
+            <div class='restDist'>{{restaurant.restaurant.dist}} miles</div>
+            <span class='stretch'></span>
+         </div>
       <a>
    </div>
 </div>
