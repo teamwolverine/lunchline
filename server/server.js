@@ -8,12 +8,9 @@ var mongoose = require('mongoose');
 var restController = require('./restaurant/restController.js');
 var jsonParser = require('body-parser').json();
 
-
 if(!process.env.USERNAME){
   var config = require('./config.js');
 };
-
-console.log('SERVER.JS IS RUNNING');
 
 var mongooseUsername = process.env.USERNAME || config.username;
 var mongoosePassword = process.env.PASSWORD || config.password;
@@ -24,14 +21,8 @@ mongoose.connect('mongodb://'+mongooseUsername+':'+mongoosePassword+'@ds011158.m
 app.use(express.static(__dirname + '/../client/'));//serving all static files to our client folder
 app.use('/node', express.static(__dirname + '/../node_modules/'));
 app.use('/bower', express.static(__dirname + '/../bower_components/'));
-// app.use('/node_modules', express.static(__dirname + '/node_modules/'));
-
 
 app.post('/api', jsonParser, restController.getRestaurants);
 app.put('/api/update', jsonParser, restController.updateWait);
-
-
-
-
 
 module.exports = app;

@@ -1,19 +1,20 @@
-var express = require('express');
-console.log('REQUIRING SERVER JS FILE 2');
+/* NOT USING THIS FILE ANYMORE */
 
-var app = require('../server.js');
-var port = process.env.PORT || 8080;
-var restController = require('./restController.js');
-var jsonParser = require('body-parser').json();
+// var express = require('express');
 
-
-//app.get('/api', restController.getRestaurants);
-//on page load
-app.post('/api', jsonParser, restController.getRestaurants);
-//app.get('/url', utils.function)
-
-//app.put('/user/:id', utils.function)
-app.put('/api/update', jsonParser, restController.updateWait);
+// var app = require('../server.js');
+// var port = process.env.PORT || 8080;
+// var restController = require('./restController.js');
+// var jsonParser = require('body-parser').json();
 
 
-// module.exports = app
+// //app.get('/api', restController.getRestaurants);
+// //on page load
+// app.post('/api', jsonParser, restController.getRestaurants);
+// //app.get('/url', utils.function)
+
+// //app.put('/user/:id', utils.function)
+// app.put('/api/update', jsonParser, restController.updateWait);
+
+
+// // module.exports = app

@@ -10,7 +10,6 @@ myApp
 .factory('Data', function($http) {
    var getPromise;
    var promise = function(userLoc){
-    console.log('Line 13 : Promise function called');
       getPromise = $http.post('/api', userLoc);
    }
 
@@ -19,7 +18,6 @@ myApp
    }
 
    var getData = function (userLoc) {
-      console.log('L22 : Get Data run');
       promise(userLoc);
       return fetchData()
       .then(function(data) {
@@ -69,9 +67,6 @@ myApp
 .factory('PostData', function($http) {
 
   function updateWait(objToSend) {
-
-    // PUT
-    // /api/update (wait, place_id)
 
     $http({
       method: 'PUT',

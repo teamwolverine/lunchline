@@ -1,6 +1,6 @@
  <!-- Main View page for the detailed restaurant info -->
 
-  <div id="restViewWrapper" ng-controller="restCtrl">
+  <div id="restViewWrapper">
 
     <!-- Photo Or Map, TBD -->
     <div class="row ngmap">
@@ -14,15 +14,15 @@
       <div class="col-sm-12 restaurantInfo">
         <h1>{{ restaurant.name }}</h1>
         <h3>{{ restaurant.rating }} - {{ starString }} - Price: {{ restaurant.price }}</h3>
-        <h3>Category : {{ restaurant.category }}</h3>
+        <h3>{{ restaurant.category }}</h3>
       </div>
     </div>
 
     <!-- Address, Hours, Etc -->
     <div class="row">
       <ul class="list-group">
-        <li class="list-group-item"><h2>Address : {{ restaurant.address }}</h2></li>
-        <li class="list-group-item"><h2>Estimated Wait Time : {{ waitString }}</h2></li>
+        <li class="list-group-item"><h2>{{ restaurant.address }}</h2></li>
+        <li class="list-group-item"><h2>Estimated Wait Time: {{ waitString }}</h2></li>
         <li class="list-group-item"><div id="currWait"></div></li>
       </ul>
     </div>
@@ -34,9 +34,9 @@
 
       <div class="btn btn-default transparent" id="shortWait" ng-click="updateWait('green')" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'><h1>< 10 Mins</h1></div>
 
-      <a href class="btn btn-default transparent" id="medWait" ng-click="updateWait('yellow')" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'><h1>10 - 45 Mins</h1></a>
+      <a href class="btn btn-default transparent" id="medWait" ng-click="updateWait('yellow')" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'><h1>10 - 30 Mins</h1></a>
 
-      <a href class="btn btn-default transparent" id="longWait" ng-click="updateWait('red')" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'><h1>> 45 Mins</h1></a>
+      <a href class="btn btn-default transparent" id="longWait" ng-click="updateWait('red')" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'><h1>> 30 Mins</h1></a>
 
     </div>
   </div>
