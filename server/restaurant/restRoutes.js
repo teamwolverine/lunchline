@@ -7,8 +7,7 @@ var jsonParser = require('body-parser').json();
 
 //app.get('/api', restController.getRestaurants);
 //on page load
-app.post('/api', jsonParser, restController.test);
-app.get('/test', jsonParser, function(req, res){console.log("HALLO!!") res.sendStatus(201);});
+app.post('/api', jsonParser, restController.getRestaurants);
 //app.get('/url', utils.function)
 
 //app.put('/user/:id', utils.function)

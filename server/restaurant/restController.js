@@ -7,10 +7,6 @@ if(!process.env.GOOGLEPLACESKEY){
   var config = require('../config.js');
 };
 
-exports.test = function(req, res){
-  console.log("I AM A TEST FUNCTION!!!!");
-  res.end(200); 
-},
 
 exports.getRestaurants = function(req, res, next){
   console.log("inside getrestaurants");
