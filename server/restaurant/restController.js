@@ -12,7 +12,7 @@ exports.getRestaurants = function(req, res){
   var results = [];
   //console.log("+++line 10 - getRestaurants called")
   var locations = new PlaceSearch(config.placesKey);
-  locations.search({keyword: 'restaurant', location: [lat, lng], radius: 1609.34}, function(err, response){
+  locations.search({keyword:'quick food', location: [lat, lng], radius: 1000}, function(err, response){
       if(err){
         throw err;
       }
@@ -52,7 +52,7 @@ exports.getRestaurants = function(req, res){
     })
 },
 
-exports.updateWait = function(req, resp, next){
+exports.updateWait = function(req, res){
     console.log("request obj: ", req.body);
     var query = {place_id: req.body.place_id}
     console.log("+++ query", query)
