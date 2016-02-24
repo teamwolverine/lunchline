@@ -2,14 +2,17 @@ var cors = require('cors');
 var Q = require('q');
 var Restaurant = require('./restModel.js');
 var PlaceSearch = require('google-locations');
-var config = require('../config.js');
 var _ = require('underscore');
+if(!process.env.GOOLEPLACESKEY){
+  var config = require('../config.js');
+}
 
 exports.getRestaurants = function(req, res, next){
   console.log(req.body);
   var results = [];
   //console.log("+++line 10 - getRestaurants called")
-  var locations = new PlaceSearch(config.placesKey);
+  var locations = new PlaceSearch(process.env.GOOGLEPLACESKEY || config.placesKey);
+  console.log("KEY :", process.env.GOOGLEPLACESKEY);
   locations.search({keyword: 'restaurant', location: [34.0192676, -118.4965371], radius: 1609.34}, function(err, response){
       if(err){
         throw err;
@@ -37,8 +40,8 @@ exports.getRestaurants = function(req, res, next){
               results.push(restaurant)
               if(results.length === 20){
                 //console.log(results)
-                res.json(results); 
-              }  
+                res.json(results);
+              }
             })
           }
           else {
@@ -46,13 +49,13 @@ exports.getRestaurants = function(req, res, next){
             //console.log(results.length)
           if(results.length === 20){
               //console.log(results)
-              res.json(results); 
-            }  
+              res.json(results);
+            }
           }
-        })    
+        })
       })
-    }) 
-},  
+    })
+},
 
 
 //helper functions for http requests
@@ -92,14 +95,14 @@ exports.getRestaurants = function(req, res, next){
 //         }
 //         else {
 //           console.log("+++ line 44 model: ", newModel)
-//           closestRestaurants.push(newModel)  
+//           closestRestaurants.push(newModel)
 //         }
-//       }) 
+//       })
 //     }
 //     res.json(closestRestaurants);
-//     console.log("+++ line 49 closestRestaurants: ", closestRestaurants) 
-//   })     
-// },    
+//     console.log("+++ line 49 closestRestaurants: ", closestRestaurants)
+//   })
+// },
 
 // exports.fetchRestaurants = function(req, resp, next){
 //   console.log("fetch is running")
