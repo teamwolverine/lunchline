@@ -34,15 +34,15 @@
    <!--Navigation bar -->
    <div class="scrollable" id="navigation">
       <div class="scrollable-header">
-         <!-- <h1>LunchLine</h1> -->
-         <img class="logo" src="/assets/tempLogo.png">
-         <ul class="nav">
+         <img class="logo center-block" src="/assets/lunchline.png">
+<!--     <ul class="nav">
             <li><a ui-sref='home'>Home</a></li>
             <li><a ui-sref='listView'>List View</a></li>
             <li><a ui-sref='restView'>Restaurant View</a></li>
-         </ul>
+         </ul> -->
       </div>
       <div ui-view class="scrollable-content">
+         <div ng-include="app/listView/list.html"></div>
 
       <!-- UI Router inserts here -->
 

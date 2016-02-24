@@ -20,5 +20,6 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-an
    .state('errorView', {
       url: '/error',
       templateUrl: './err.html'
-   })
+   });
+   $urlRouterProvider.otherwise('/listView');
 });
