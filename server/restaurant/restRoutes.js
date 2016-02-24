@@ -1,4 +1,6 @@
 var express = require('express');
+console.log('REQUIRING SERVER JS FILE 2');
+
 var app = require('../server.js');
 var port = process.env.PORT || 8080;
 var restController = require('./restController.js');
@@ -13,6 +15,5 @@ app.post('/api', jsonParser, restController.getRestaurants);
 //app.put('/user/:id', utils.function)
 app.put('/api/update', jsonParser, restController.updateWait);
 
-// app.listen(port);
 
 // module.exports = app

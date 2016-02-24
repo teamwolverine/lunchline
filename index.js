@@ -1,11 +1,12 @@
+console.log('REQUIRING SERVER JS FILE 1');
 var app = require('./server/server.js');
 var port = process.env.PORT || 8080;
-var route = require('./server/restaurant/restRoutes.js')
-var restController = require('./server/restaurant/restController.js')
+// var route = require('./server/restaurant/restRoutes.js')
+// var restController = require('./server/restaurant/restController.js')
 
 
 console.log("app = ", app);
-console.log("route = ", route);
+// console.log("route = ", route);
 app.listen(port);
 
 

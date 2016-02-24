@@ -1,6 +1,7 @@
 /* Handles controller code for main restaurant info */
 
 myApp.controller('restCtrl', function($scope, Data, PostData) {
+  console.log('L4 Rest.js Restview Called');
 
     $scope.restaurant = {
       id: '',

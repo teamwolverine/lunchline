@@ -1,6 +1,7 @@
 //Retrieve information from the server and serve it in HTML.
 myApp
 .controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
+   console.log('L4 Listcontroller called');
    $scope.data = [];
    $scope.userLocation = {};
    $scope.transferEvent = function(obj) {
