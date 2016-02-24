@@ -4,6 +4,7 @@
   "description": "Lunchline App",
   "main": "index.js",
   "dependencies": {
+    "angular-loading-bar": "^0.8.0",
     "angular-ui-bootstrap": "^1.1.2",
     "body-parser": "^1.15.0",
     "bower": "^1.7.7",

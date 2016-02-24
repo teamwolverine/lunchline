@@ -19,7 +19,12 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       // Get data from clicked item
       $scope.restaurant.place_id = Data.clickedItem.place_id;
       $scope.restaurant.name = Data.clickedItem.name;
-      $scope.restaurant.category = Data.clickedItem.types[0];
+
+      var type = Data.clickedItem.types;
+      var capitalizedType = type.charAt(0).toUpperCase() + type.substring(1);
+
+
+      $scope.restaurant.category = capitalizedType;
       $scope.restaurant.address = Data.clickedItem.vicinity;
       $scope.restaurant.waitTime = Data.clickedItem.wait;
       $scope.restaurant.lat = Data.clickedItem.geometry.location.lat;
