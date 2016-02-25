@@ -1,10 +1,11 @@
 * {
-  font-family: Lato;
-  font-size: 1.1em;
+  font-family: "Helvetica Neue", "Helvetica", "Arial";
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .logo {
-  width: auto;
+  width: 35%;
   height: auto;
 }
 
@@ -49,13 +50,35 @@ h1, h2 {
   text-decoration: none;
 }
 
+.list-group {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.list-group-item {
+  font-size: 3em;
+  padding: 15px 30px 15px 20px; 
+}
+
 #restViewMap {
-  height: 200px;
+  height: 500px;
   padding: 0px 15px;
 }
 
-.restaurantInfo {
+.restaurantInfoWrapper {
   padding: 40px 30px;
+}
+
+#restName {
+  font-size: 4em;
+}
+
+.restInfo {
+  font-size: 2.2em;
+}
+
+.restDetails {
+  font-size: .8em;
 }
 
 .googleBlue {
@@ -66,9 +89,9 @@ h1, h2 {
   color: #eeeeee;
 }
 
-.list-group {
-  padding-left: 15px;
-  padding-right: 15px;
+.checkIn {
+  font-size: 4em;
+  margin: 5%
 }
 
 #currWait {
@@ -111,9 +134,21 @@ h1, h2 {
   height: 25px;
   width: 25px;
   right: 6%;
-  top:0;
-  bottom:0;
-  margin:auto;
+  top: 0;
+  bottom: 0;
+  margin: auto 20px;
+}
+
+@media only screen 
+and (min-device-width : 736px) {
+  .logo {
+    width: auto;
+  }
+  * {
+    font-family: "Lato", "Helvetica";
+    font-size: 8px;
+    font-weight: 300;
+  }
 }
 
 /*Cameron STUFF*/

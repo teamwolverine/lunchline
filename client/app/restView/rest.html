@@ -15,9 +15,9 @@
 
     <!-- Main Restaurnt Info -->
     <div class="row googleBlue lightText">
-      <div class="col-sm-12 restaurantInfo">
-        <h1>{{ restaurant.name }}</h1>
-        <h3>{{ restaurant.rating }} - {{ starString }} - Price: {{ restaurant.price }}</h3>
+      <div class="col-sm-12 restaurantInfoWrapper">
+        <h1 id="restName">{{ restaurant.name }}</h1>
+        <h3 class="restInfo">{{ restaurant.rating }} - {{ starString }} - Price: {{ restaurant.price }}</h3>
         <h3>{{ restaurant.category }}</h3>
       </div>
     </div>
@@ -26,14 +26,14 @@
     <div class="row">
       <ul class="list-group">
 
-        <li class="list-group-item"><h2><a target ="_blank" ng-href = "https://www.google.com/maps/dir/604+Arizona+Ave+Santa+Monica/{{restaurant.address}}">{{ restaurant.address }}</a></h2></li>
-        <li class="list-group-item"><h2>Estimated Wait Time: {{ waitString }}</h2></li>
+        <li class="list-group-item"><a class="restDetails" target="_blank" ng-href="https://www.google.com/maps/dir/604+Arizona+Ave+Santa+Monica/{{restaurant.address}}">{{ restaurant.address }}</a></li>
+        <li class="list-group-item"><h2 class="restDetails">Estimated Wait Time: {{ waitString }}</h2></li>
         <li class="list-group-item"><div id="currWait"></div></li>
       </ul>
     </div>
 
     <!-- Wait Time -->
-    <h1 class="center-block center-text"> Check In </h2>
+    <h1 class="center-block center-text checkIn">Check In</h2>
 
     <div class="btn-group btn-group-justified waitTimeButtons">
 

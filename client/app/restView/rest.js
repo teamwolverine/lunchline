@@ -15,6 +15,10 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     waitTime: ''
   };
 
+  if (!Data.clickedItem.id) {
+    Data.clickedItem = JSON.parse(sessionStorage.tempStorage);
+  }
+
   if (Data.clickedItem.id) {
     // Get data from clicked item
     var item = Data.clickedItem;
