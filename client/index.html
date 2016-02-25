@@ -30,16 +30,24 @@
 <body>
    <!--Navigation bar -->
    <div class="scrollable" id="navigation">
-      <!-- <div id='backButton' ng-show="$state.current.name === 'restView'"> -->
-
       <div class="scrollable-header">
          <img class="logo center-block" src="/assets/lunchline.png">
       </div>
-   <div ui-view class="scrollable-content">
+      <form class="form-search">
+        <div class="input-append">
+          <input type="text" ng-model="search" class="search-query" style="width: 80px">
+          <button type="submit" class="btn">Search</button>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-animate="'animate'" ng-repeat="name in names | filter:search">
+            <a href="#"> {{name}} </a>
+          </li>
+         </ul>
+       </form>
+         <div ui-view class="scrollable-content" ng-animate=" 'animate' ">
 
-      <!-- UI Router inserts here -->
-
-      </div>
+         <!-- UI Router inserts here -->
+         </div>
    </div>
 </body>
 </html>

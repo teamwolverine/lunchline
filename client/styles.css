@@ -50,7 +50,7 @@ h1, h2 {
 }
 
 #restViewMap {
-  height: 500px;
+  height: 200px;
   padding: 0px 15px;
 }
 
@@ -160,14 +160,19 @@ h1, h2 {
 }
 
 
+/*#backButton {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: black;
+}*/
 
 
-
-
-
-
-
-
-
-
-/
+#backButtonDiv {
+   position: fixed;
+   z-index: 999999;
+   top: 2%;
+   left: 1%;
+   height: auto;
+   width: auto;
+}
