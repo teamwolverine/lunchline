@@ -6,6 +6,10 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
       Data.clickedItem = obj;
    }
 
+   $scope.log = function(string) {
+      console.log('CLICK WORKED! WOOT!! : ', string);
+   }
+
    navigator.geolocation.getCurrentPosition(function(position){
       $scope.userLocation = {
          lat: position.coords.latitude,

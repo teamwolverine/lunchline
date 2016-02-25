@@ -16,6 +16,8 @@ exports.getRestaurants = function(req, res){
       if(err){
         throw err;
       }
+      console.log('RETURNED GOOGLE OBJ : ', response.results[0]);
+
       _.each(response.results, function(item){
         Restaurant.findOne({id: item.id}, function(err, obj){
           if(obj === null){

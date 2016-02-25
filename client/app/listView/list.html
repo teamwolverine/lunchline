@@ -15,9 +15,14 @@
       </div>
       <a>
    </div> -->
+
   <div class="list-group">
-    <a ng-repeat="restaurant in data" href="#" class="list-group-item">
-      {{ restaurant.restaurant.dist }} - {{ restaurant.restaurant.name }} <i class="fa fa-chevron-right pull-right"></i>
+    <a ng-repeat="restaurant in data | orderBy: 'restaurant.dist'" ui-sref="restView" ng-click="transferEvent(restaurant.restaurant)" class="list-group-item">
+      {{ restaurant.restaurant.dist }}mi - {{ restaurant.restaurant.name }} <img class="waitColorDot" src="../../assets/{{ restaurant.restaurant.wait }}.png"><i class="fa fa-chevron-right pull-right"></i>
     </a>
   </div>
+
 </div>
+
+
+<!-- <img src="app/assets/' + {{ restaurant.restaurant.wait }}.png"> -->
