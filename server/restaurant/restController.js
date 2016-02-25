@@ -11,7 +11,7 @@ exports.getRestaurants = function(req, res){
   var lng = req.body.long;
   var results = [];
   //console.log("+++line 10 - getRestaurants called")
-  var locations = new PlaceSearch(config.placesKey);
+  var locations = new PlaceSearch(config.placesKey || process.env.GOOGLEPLACESKEY);
   locations.search({keyword:'quick food', location: [lat, lng], radius: 1000}, function(err, response){
       if(err){
         throw err;
