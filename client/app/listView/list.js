@@ -5,6 +5,7 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
    $scope.transferEvent = function(obj) {
       Data.clickedItem = obj;
       sessionStorage["tempStorage"] = JSON.stringify(obj);
+      Data.showButton = true;
    }
 
    navigator.geolocation.getCurrentPosition(function(position){
@@ -20,7 +21,6 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
             lat: position.coords.latitude,
             long: position.coords.longitude
          };
-         console.log($scope.userLocation);
          Data.getData($scope.userLocation, function (fetchedData) {
             //Make a distance property for each restaurant
             for(var i = 0; i < fetchedData.length; i++) {
