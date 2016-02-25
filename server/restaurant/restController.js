@@ -16,7 +16,6 @@ exports.getRestaurants = function(req, res){
       if(err){
         throw err;
       }
-      console.log('RETURNED GOOGLE OBJ : ', response.results[0]);
 
       _.each(response.results, function(item){
         Restaurant.findOne({id: item.id}, function(err, obj){
@@ -38,6 +37,7 @@ exports.getRestaurants = function(req, res){
                 throw err;
               }
               results.push(restaurant)
+              console.log('RESULTS LENGTH : ', results.length );
               if(results.length === 20){
                 res.json(results);
               }
@@ -45,6 +45,8 @@ exports.getRestaurants = function(req, res){
           }
           else {
             results.push(obj);
+              console.log('RESULTS LENGTH : ', results.length );
+            
           if(results.length === 20){
               res.json(results);
             }
