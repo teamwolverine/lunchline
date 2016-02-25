@@ -1,10 +1,10 @@
 * {
   font-family: Lato;
-  font-size: 1.1em;
+  font-size: 16px;
 }
 
 .logo {
-  width: auto;
+  width: 35%;
   height: auto;
 }
 
@@ -50,12 +50,24 @@ h1, h2 {
 }
 
 #restViewMap {
-  height: 200px;
+  height: 500px;
   padding: 0px 15px;
 }
 
-.restaurantInfo {
+.restaurantInfoWrapper {
   padding: 40px 30px;
+}
+
+#restName {
+  font-size: 4em;
+}
+
+.restInfo {
+  font-size: 2.2em;
+}
+
+.restDetails {
+  font-size: 2.4em;
 }
 
 .googleBlue {
@@ -69,6 +81,11 @@ h1, h2 {
 .list-group {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.checkIn {
+  font-size: 4em;
+  margin: 5%
 }
 
 #currWait {
@@ -114,6 +131,15 @@ h1, h2 {
   top:0;
   bottom:0;
   margin:auto;
+}
+
+@media (min-width: 1000px) {
+  .logo {
+    width: auto;
+  }
+  * {
+    font-size: 8px;
+  }
 }
 
 /*Cameron STUFF*/
