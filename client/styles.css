@@ -106,6 +106,15 @@ h1, h2 {
   color: #111;
 }
 
+.waitColorDot {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  right: 6%;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
 
 /*Cameron STUFF*/
 

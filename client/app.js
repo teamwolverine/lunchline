@@ -2,17 +2,15 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-an
 //UI router setup
 .config(function ($stateProvider, $urlRouterProvider) {
    $stateProvider
-   .state('listView', {
-      url: '/',
-      templateUrl: './app/listView/list.html',
-      controller: 'listCtrl'
-   })
    .state('restView', {
       url: '/restView',
       templateUrl: './app/restView/rest.html',
       controller: 'restCtrl'
    })
-})
-.config(function($urlRouterProvider) {
+   .state('listView', {
+      url: '/',
+      templateUrl: './app/listView/list.html',
+      controller: 'listCtrl'
+   });
    $urlRouterProvider.otherwise('/');
 });

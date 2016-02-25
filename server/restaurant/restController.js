@@ -11,11 +11,12 @@ exports.getRestaurants = function(req, res){
   var lng = req.body.long;
   var results = [];
   //console.log("+++line 10 - getRestaurants called")
-  var locations = new PlaceSearch(config.placesKey);
+  var locations = new PlaceSearch(process.env.GOOGLEPLACESKEY || config.placesKey );
   locations.search({keyword:'quick food', location: [lat, lng], radius: 1000}, function(err, response){
       if(err){
         throw err;
       }
+
       _.each(response.results, function(item){
         Restaurant.findOne({id: item.id}, function(err, obj){
           if(obj === null){
@@ -36,14 +37,17 @@ exports.getRestaurants = function(req, res){
                 throw err;
               }
               results.push(restaurant)
-              if(results.length === 20){
+              console.log('RESULTS LENGTH : ', results.length );
+              if(results.length === 15){
                 res.json(results);
               }
             })
           }
           else {
             results.push(obj);
-          if(results.length === 20){
+              console.log('RESULTS LENGTH : ', results.length );
+
+          if(results.length === 15){
               res.json(results);
             }
           }
