@@ -25,6 +25,7 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
          Data.getData($scope.userLocation)
             .then(function(fetchedData) {
             $scope.data = fetchedData;
+            console.log($scope.data);
          })
       })
    }
