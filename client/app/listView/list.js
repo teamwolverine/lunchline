@@ -4,10 +4,7 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
    $scope.userLocation = {};
    $scope.transferEvent = function(obj) {
       Data.clickedItem = obj;
-   }
-
-   $scope.log = function(string) {
-      console.log('CLICK WORKED! WOOT!! : ', string);
+      sessionStorage["tempStorage"] = JSON.stringify(obj);
    }
 
    navigator.geolocation.getCurrentPosition(function(position){
