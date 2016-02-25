@@ -11,10 +11,6 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-an
       url: '/',
       templateUrl: './app/listView/list.html',
       controller: 'listCtrl'
-   })
-   .state('errorView', {
-      url: '/error',
-      templateUrl: './err.html'
    });
    $urlRouterProvider.otherwise('/');
 });
