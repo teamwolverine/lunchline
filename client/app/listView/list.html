@@ -16,6 +16,19 @@
       <a>
    </div> -->
 
+   <!-- Search Bar -->
+   <!-- <form class="form-search">
+    <div class="input-append">
+       <input type="text" ng-model="data" class="search-query" style="width: 80px">
+       <button type="submit" class="btn">Search</button>
+    </div>
+      <ul class="nav nav-pills nav-stacked">
+        <li ng-animate="'animate'" ng-repeat="restaurant in data | filter:search">
+          <a href="#"> {{restaurant.restaurant.name}} </a>
+        </li>
+      </ul>
+   </form> -->
+
   <div class="list-group">
     <a ng-repeat="restaurant in data | orderBy: 'restaurant.dist'" ui-sref="restView" ng-click="transferEvent(restaurant.restaurant)" class="list-group-item">
       {{ restaurant.restaurant.dist }}mi - {{ restaurant.restaurant.name }} <img class="waitColorDot" src="../../assets/{{ restaurant.restaurant.wait }}.png"><i class="fa fa-chevron-right pull-right"></i>
