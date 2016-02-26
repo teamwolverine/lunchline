@@ -5,6 +5,8 @@
 }
 
 .logo {
+  padding-bottom: 1em;
+  padding-top: 1em;
   width: auto;
   height: auto;
 }
@@ -24,6 +26,10 @@ h1, h2 {
 .list-map {
   margin: 0 auto;
   width: 80%;
+}
+
+#pageHeader {
+  border-bottom: 1px solid #aaaaaa;
 }
 
 .center-text {
@@ -65,10 +71,6 @@ h1, h2 {
   font-size: 3em;
   font-weight: bold;
 }
-
-/*#navigation {
-  background-color: #777D38;
-}*/
 
 #listViewHeader {
   padding-bottom: 0;
