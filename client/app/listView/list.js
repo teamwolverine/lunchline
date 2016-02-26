@@ -1,4 +1,3 @@
-
 myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
    $scope.data = [];
    $scope.userLocation = {};
@@ -8,22 +7,27 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
       Data.showButton = true;
    }
 
-   navigator.geolocation.getCurrentPosition(function(position){
+   $scope.order = function(predicate) {
+      $scope.predicate = predicate;
+      $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+   };
+
+   navigator.geolocation.getCurrentPosition(function(position) {
       $scope.userLocation = {
          lat: position.coords.latitude,
          long: position.coords.longitude
       };
    });
 
-   $scope.restInfo = function () {
-      navigator.geolocation.getCurrentPosition(function(position){
+   $scope.restInfo = function() {
+      navigator.geolocation.getCurrentPosition(function(position) {
          $scope.userLocation = {
             lat: position.coords.latitude,
             long: position.coords.longitude
          };
-         Data.getData($scope.userLocation, function (fetchedData) {
+         Data.getData($scope.userLocation, function(fetchedData) {
             //Make a distance property for each restaurant
-            for(var i = 0; i < fetchedData.length; i++) {
+            for (var i = 0; i < fetchedData.length; i++) {
                var destination = {
                   lat: fetchedData[i].restaurant.geometry.location.lat,
                   long: fetchedData[i].restaurant.geometry.location.lng

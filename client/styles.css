@@ -60,6 +60,24 @@ h1, h2 {
   padding: 15px 30px 15px 20px; 
 }
 
+.listHeading {
+  cursor: pointer;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+#listViewHeader {
+  padding-bottom: 0;
+}
+
+#distanceTitle {
+  padding-right: 1em;
+}
+
+#waitTitle {
+  padding-right: 1.5em;
+}
+
 #restViewMap {
   height: 500px;
   padding: 0px 15px;
