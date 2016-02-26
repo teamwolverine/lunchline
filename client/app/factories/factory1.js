@@ -6,11 +6,15 @@ myApp
          url: '/api',
          data: userLoc
       }).then(function success(data) {
-         var collection = [];
-         data.data.map(function(restaurant) {
-            collection.push({restaurant : restaurant});
-         });
-         callback(collection);
+         // var collection = [];
+         // data.data.map(function(restaurant) {
+         //    collection.push({restaurant : restaurant});
+         // });
+         // callback(collection);
+        var collection = data.data.map(function(restaurant) {
+          return {restaurant : restaurant};
+        });
+        callback(collection);
       },
          function error(response) {
             console.log("ERROR: ", response);

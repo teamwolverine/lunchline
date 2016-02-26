@@ -12,12 +12,13 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
       $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
    };
 
-   navigator.geolocation.getCurrentPosition(function(position) {
-      $scope.userLocation = {
-         lat: position.coords.latitude,
-         long: position.coords.longitude
-      };
-   });
+   // navigator.geolocation.getCurrentPosition(function(position) {
+   //    console.log('First Geolocation called');
+   //    $scope.userLocation = {
+   //       lat: position.coords.latitude,
+   //       long: position.coords.longitude
+   //    };
+   // });
 
    $scope.restInfo = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -33,8 +34,8 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
                   long: fetchedData[i].restaurant.geometry.location.lng
                };
                fetchedData[i].restaurant.dist = distance.calc($scope.userLocation, destination);
-               $scope.data = fetchedData;
             }
+            $scope.data = fetchedData;
             $scope.contentLoading = false;
          });
       });
