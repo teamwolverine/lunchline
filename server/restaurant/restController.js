@@ -21,7 +21,7 @@ exports.getRestaurants = function(req, res){
         Restaurant.findOne({id: item.id}, function(err, obj){
           if(obj === null){
             var restaurant = new Restaurant({
-              wait: "unavailable",
+              wait: "3_unavailable",
               geometry: {location: {lat: item.geometry.location.lat, lng: item.geometry.location.lng}},
               id: item.id,
               name: item.name,

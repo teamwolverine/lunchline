@@ -82,7 +82,7 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     }
   } else { // No data loaded.  Load default values.
     angular.element(document.querySelector('#currWait')).addClass('googleBlue');
-    $scope.waitString = 'N/A';
+    $scope.waitString = 'not available';
   }
 
   // When a Check in Button is clicked, update the wait time on page and DB
@@ -103,7 +103,8 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       html: '<p id="sweetAlert">Thanks for checking in!</p>',
       type: 'success',
       timer: 1500,
-      width: 600
+      width: 600,
+      showConfirmButton: false
     });
 
     switch (wait) {
