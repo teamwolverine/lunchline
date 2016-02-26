@@ -31,10 +31,12 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
                fetchedData[i].restaurant.dist = distance.calc($scope.userLocation, destination);
                $scope.data = fetchedData;
             }
+            $scope.contentLoading = false;
          });
       });
       //Fetch data for that location
    }
 
    $scope.restInfo();
+   $scope.contentLoading = true;
 });

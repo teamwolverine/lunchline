@@ -99,6 +99,13 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
   };
 
   function updateWaitColorDiv(wait) {
+    swal({
+      html: '<p id="sweetAlert">Thanks for checking in!</p>',
+      type: 'success',
+      timer: 1500,
+      width: 600
+    });
+
     switch (wait) {
       case 'red':
         angular.element(document.querySelector('#currWait')).removeClass('yellow');
