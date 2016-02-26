@@ -162,7 +162,15 @@ h1, h2 {
   margin: auto 20px;
 }
 
-@-webkit-keyframes placeHolderShimmer {
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+
+/*@-webkit-keyframes placeHolderShimmer {
   0% {
     background-position: -468px 0
   }
@@ -200,7 +208,7 @@ h1, h2 {
   background-size: 800px 104px;
   height: 2em;
   position: relative;
-}
+}*/
 
 @media only screen 
 and (min-device-width : 736px) {
