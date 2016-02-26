@@ -5,7 +5,7 @@
 }
 
 .logo {
-  width: 35%;
+  width: auto;
   height: auto;
 }
 
@@ -66,6 +66,10 @@ h1, h2 {
   font-weight: bold;
 }
 
+/*#navigation {
+  background-color: #777D38;
+}*/
+
 #listViewHeader {
   padding-bottom: 0;
 }
@@ -100,7 +104,8 @@ h1, h2 {
 }
 
 .googleBlue {
-  background-color: #4285F4;
+  /*background-color: #4285F4;*/
+  background-color: #777D38;
 }
 
 .lightText {
@@ -213,7 +218,7 @@ h1, h2 {
 @media only screen 
 and (min-device-width : 736px) {
   .logo {
-    width: auto;
+    width: 25%;
   }
   * {
     font-family: "Lato", "Helvetica";

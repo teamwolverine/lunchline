@@ -63,19 +63,19 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
 
     // Change color of main indicator div based on wait time from database
     switch ($scope.restaurant.waitTime) {
-      case 'red':
+      case '2_red':
         angular.element(document.querySelector('#currWait')).addClass('red');
         $scope.waitString = '> 30 Mins';
         break;
-      case 'yellow':
+      case '1_yellow':
         angular.element(document.querySelector('#currWait')).addClass('yellow');
         $scope.waitString = '~ 20 Mins';
         break;
-      case 'green':
+      case '0_green':
         angular.element(document.querySelector('#currWait')).addClass('green');
         $scope.waitString = '< 10 Mins';
         break;
-      case 'unavailable':
+      case '3_grey':
         angular.element(document.querySelector('#currWait')).addClass('googleBlue');
         $scope.waitString = 'not available';
         break;
@@ -108,21 +108,21 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     });
 
     switch (wait) {
-      case 'red':
+      case '2_red':
         angular.element(document.querySelector('#currWait')).removeClass('yellow');
         angular.element(document.querySelector('#currWait')).removeClass('green');
         angular.element(document.querySelector('#currWait')).removeClass('googleBlue');
         angular.element(document.querySelector('#currWait')).addClass('red');
         $scope.waitString = '> 30 Mins';
         break;
-      case 'yellow':
+      case '1_yellow':
         angular.element(document.querySelector('#currWait')).removeClass('red');
         angular.element(document.querySelector('#currWait')).removeClass('green');
         angular.element(document.querySelector('#currWait')).removeClass('googleBlue');
         angular.element(document.querySelector('#currWait')).addClass('yellow');
         $scope.waitString = '~ 20 Mins';
         break;
-      case 'green':
+      case '0_green':
         angular.element(document.querySelector('#currWait')).removeClass('yellow');
         angular.element(document.querySelector('#currWait')).removeClass('red');
         angular.element(document.querySelector('#currWait')).removeClass('googleBlue');
