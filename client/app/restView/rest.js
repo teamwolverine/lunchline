@@ -75,9 +75,9 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
         angular.element(document.querySelector('#currWait')).addClass('green');
         $scope.waitString = '< 10 Mins';
         break;
-      case 'blue':
+      case 'unavailable':
         angular.element(document.querySelector('#currWait')).addClass('googleBlue');
-        $scope.waitString = 'N/A';
+        $scope.waitString = 'not available';
         break;
     }
   } else { // No data loaded.  Load default values.

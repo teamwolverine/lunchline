@@ -42,5 +42,7 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
    }
 
    $scope.restInfo();
+   $scope.reverse = true;
+   $scope.order('restaurant.dist');
    $scope.contentLoading = true;
 });
