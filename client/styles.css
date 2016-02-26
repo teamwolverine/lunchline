@@ -71,7 +71,7 @@ h1, h2 {
 }
 
 #distanceTitle {
-  padding-right: 1em;
+  padding-right: 1.9em;
 }
 
 #waitTitle {
@@ -210,6 +210,14 @@ and (min-device-width : 736px) {
     font-family: "Lato", "Helvetica";
     font-size: 8px;
     font-weight: 300;
+  }
+
+  #distanceTitle {
+    padding-right: 1em;
+  }
+
+  #waitTitle {
+    padding-right: 0.5em;
   }
 }
 

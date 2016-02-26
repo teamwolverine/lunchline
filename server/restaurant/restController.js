@@ -47,7 +47,7 @@ exports.getRestaurants = function(req, res){
             results.push(obj);
               console.log('RESULTS LENGTH : ', results.length );
 
-          if(results.length === 15){
+          if(results.length === 18){
               res.json(results);
             }
           }
