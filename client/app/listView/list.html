@@ -41,7 +41,8 @@
       </ul>
     </div>
     <a ng-repeat="restaurant in data | orderBy:predicate:reverse" ui-sref="restView" ng-click="transferEvent(restaurant.restaurant)" class="list-group-item">
-      {{ restaurant.restaurant.dist }}mi - {{ restaurant.restaurant.name }} <img class="waitColorDot" ng-src="../../assets/{{restaurant.restaurant.wait}}.png"><i class="fa fa-chevron-right pull-right"></i>
+      {{ restaurant.restaurant.dist }}mi - {{ restaurant.restaurant.name }} <img class="waitColorDot" ng-src="../../assets/{{restaurant.restaurant.wait}}.png">
+      <img class="rightChevron" ng-src="../../assets/rightChevron.png">
     </a>
   </div>
 

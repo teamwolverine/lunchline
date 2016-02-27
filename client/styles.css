@@ -63,7 +63,7 @@ h1, h2 {
 
 .list-group-item {
   font-size: 3em;
-  padding: 15px 30px 15px 20px; 
+  padding: 15px 80px 15px 20px; 
 }
 
 .listHeading {
@@ -81,7 +81,8 @@ h1, h2 {
 }
 
 #waitTitle {
-  padding-right: 0.5em;
+  position: absolute;
+  right: 5%;
 }
 
 #restViewMap {
@@ -161,9 +162,17 @@ h1, h2 {
 
 .waitColorDot {
   position: absolute;
-  height: 25px;
-  width: 25px;
+  height: 2.5em;
   right: 6%;
+  top: 0;
+  bottom: 0;
+  margin: auto 20px;
+}
+
+.rightChevron {
+  position: absolute;
+  height: 4em;
+  right: 0;
   top: 0;
   bottom: 0;
   margin: auto 20px;
