@@ -63,7 +63,11 @@ h1, h2 {
 
 .list-group-item {
   font-size: 3em;
-  padding: 15px 80px 15px 20px; 
+  padding: 15px 20px 15px 20px; 
+}
+
+a.list-group-item {
+  padding-right: 80px;
 }
 
 .listHeading {
