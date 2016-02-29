@@ -1,38 +1,10 @@
 
 <div>
-<!--     <div class="row ngmap">
-      <div class="list-map" map-lazy-load="https://maps.google.com/maps/api/js">
-        <ng-map id="restViewMap" center="{{ userLocation.lat }},{{ userLocation.long }}" zoom="18" style=""></ng-map>
-      </div>
-    </div> -->
-
-<!--    <div class="mainList" ng-repeat="restaurant in data | orderBy: 'restaurant.dist'">
-      <a ui-sref='restView'>
-      <div class="listItem" ng-style="{'background-color': restaurant.restaurant.wait}" ng-click='transferEvent(restaurant.restaurant)'>
-         {{restaurant.restaurant.name}}
-
-         {{restaurant.restaurant.dist}}
-      </div>
-      <a>
-   </div> -->
-
-   <!-- Search Bar -->
-   <!-- <form class="form-search">
-    <div class="input-append">
-       <input type="text" ng-model="data" class="search-query" style="width: 80px">
-       <button type="submit" class="btn">Search</button>
-    </div>
-      <ul class="nav nav-pills nav-stacked">
-        <li ng-animate="'animate'" ng-repeat="restaurant in data | filter:search">
-          <a href="#"> {{restaurant.restaurant.name}} </a>
-        </li>
-      </ul>
-   </form> -->
-
-  <!-- <div ng-show="contentLoading" class="animated-background facebook"></div> -->
+  <!-- Loading Animation -->
   <img src="../../assets/balls.gif" ng-show="contentLoading" class="loading">
 
   <div class="list-group">
+    <!-- Header with list lables and sort options -->
     <div id="listViewHeader" class="list-group-item">
       <ul class="list-inline">
         <li class="listHeading" id="distanceTitle" ng-click="order('restaurant.dist')">Dist</li>
@@ -40,10 +12,10 @@
         <li class="listHeading pull-right" id="waitTitle" ng-click="order('restaurant.wait')">Wait</li>
       </ul>
     </div>
+    <!-- List of Restaurants.  Uses Angular Mobile UI classes -->
     <a ng-repeat="restaurant in data | orderBy:predicate:reverse" ui-sref="restView" ng-click="transferEvent(restaurant.restaurant)" class="list-group-item">
       {{ restaurant.restaurant.dist }}mi - {{ restaurant.restaurant.name }} <img class="waitColorDot" ng-src="../../assets/{{restaurant.restaurant.wait}}.png">
       <img class="rightChevron" ng-src="../../assets/rightChevron.png">
     </a>
   </div>
-
 </div>

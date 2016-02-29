@@ -1,24 +1,21 @@
+// Controller for the main home list view
 myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
    $scope.data = [];
    $scope.userLocation = {};
+
+   // Function called when a wait time is reported.  Saves to session storage for refresh/back cases
+   // and updates database.
    $scope.transferEvent = function(obj) {
       Data.clickedItem = obj;
       sessionStorage["tempStorage"] = JSON.stringify(obj);
       Data.showButton = true;
    }
 
+   // Order variable used for the sorting order
    $scope.order = function(predicate) {
       $scope.predicate = predicate;
       $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
    };
-
-   // navigator.geolocation.getCurrentPosition(function(position) {
-   //    console.log('First Geolocation called');
-   //    $scope.userLocation = {
-   //       lat: position.coords.latitude,
-   //       long: position.coords.longitude
-   //    };
-   // });
 
    $scope.restInfo = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
