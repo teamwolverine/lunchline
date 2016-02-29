@@ -5,7 +5,9 @@
 }
 
 .logo {
-  width: 35%;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  width: auto;
   height: auto;
 }
 
@@ -24,6 +26,10 @@ h1, h2 {
 .list-map {
   margin: 0 auto;
   width: 80%;
+}
+
+#pageHeader {
+  border-bottom: 1px solid #aaaaaa;
 }
 
 .center-text {
@@ -57,7 +63,30 @@ h1, h2 {
 
 .list-group-item {
   font-size: 3em;
-  padding: 15px 30px 15px 20px; 
+  padding: 15px 20px 15px 20px; 
+}
+
+a.list-group-item {
+  padding-right: 80px;
+}
+
+.listHeading {
+  cursor: pointer;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+#listViewHeader {
+  padding-bottom: 0;
+}
+
+#distanceTitle {
+  padding-right: 1.5em;
+}
+
+#waitTitle {
+  position: absolute;
+  right: 5%;
 }
 
 #restViewMap {
@@ -82,7 +111,8 @@ h1, h2 {
 }
 
 .googleBlue {
-  background-color: #4285F4;
+  /*background-color: #4285F4;*/
+  background-color: #777D38;
 }
 
 .lightText {
@@ -129,25 +159,94 @@ h1, h2 {
   color: #111;
 }
 
+#sweetAlert {
+  font-size: 3.5em;
+  margin: 0 1em 1em 1em;
+}
+
 .waitColorDot {
   position: absolute;
-  height: 25px;
-  width: 25px;
+  height: 2.5em;
   right: 6%;
   top: 0;
   bottom: 0;
   margin: auto 20px;
 }
 
+.rightChevron {
+  position: absolute;
+  height: 4em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 20px;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -75px;
+}
+
+/*@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+.animated-background {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: #eeeeee;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: 2em;
+  position: relative;
+}*/
+
 @media only screen 
 and (min-device-width : 736px) {
   .logo {
-    width: auto;
+    width: 25%;
   }
   * {
     font-family: "Lato", "Helvetica";
     font-size: 8px;
     font-weight: 300;
+  }
+
+  #distanceTitle {
+    padding-right: 1em;
+  }
+
+  #waitTitle {
+    padding-right: 0.5em;
   }
 }
 

@@ -13,4 +13,7 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-an
       controller: 'listCtrl'
    });
    $urlRouterProvider.otherwise('/');
-});
+})
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+  }]);

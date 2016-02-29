@@ -27,7 +27,7 @@
       <ul class="list-group">
 
         <li class="list-group-item"><a class="restDetails" target="_blank" ng-href="https://www.google.com/maps/dir/604+Arizona+Ave+Santa+Monica/{{restaurant.address}}">{{ restaurant.address }}</a></li>
-        <li class="list-group-item"><h2 class="restDetails">Estimated Wait Time: {{ waitString }}</h2></li>
+        <li class="list-group-item"><h2 class="restDetails">Estimated Wait Time is {{ waitString }}</h2></li>
         <li class="list-group-item"><div id="currWait"></div></li>
       </ul>
     </div>
@@ -37,11 +37,11 @@
 
     <div class="btn-group btn-group-justified waitTimeButtons">
 
-      <div class="btn btn-default transparent" id="shortWait" ng-click="updateWait('green')" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'><h1>< 10 Mins</h1></div>
+      <div class="btn btn-default transparent" id="shortWait" ng-click="updateWait('0_green')" ui-turn-on='button1' ui-state='button1' ui-class="{'active': button1}" ui-exclusion-group='myButtons'><h1>< 10 Mins</h1></div>
 
-      <a href class="btn btn-default transparent" id="medWait" ng-click="updateWait('yellow')" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'><h1>~ 20 Mins</h1></a>
+      <a href class="btn btn-default transparent" id="medWait" ng-click="updateWait('1_yellow')" ui-turn-on='button2' ui-state='button2' ui-class="{'active': button2}" ui-exclusion-group='myButtons'><h1>~ 20 Mins</h1></a>
 
-      <a href class="btn btn-default transparent" id="longWait" ng-click="updateWait('red')" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'><h1>> 30 Mins</h1></a>
+      <a href class="btn btn-default transparent" id="longWait" ng-click="updateWait('2_red')" ui-turn-on='button3' ui-state='button3' ui-class="{'active': button3}" ui-exclusion-group='myButtons'><h1>> 30 Mins</h1></a>
 
     </div>
   </div>

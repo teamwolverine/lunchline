@@ -13,8 +13,10 @@
       <link rel="stylesheet" href="/bower/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css">
       <link rel="stylesheet" href="/bower/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.min.css">
       <link rel="stylesheet" type="text/css" href="/node/angular-loading-bar/build/loading-bar.min.css">
+      <link rel="stylesheet" type="text/css" href="lib/sweetalert2.css">
       <link rel="stylesheet" type="text/css" href="styles.css">
       
+      <script src="lib/sweetalert2.min.js"></script> 
       <script src='/bower/angular/angular.min.js'></script>
       <script src="/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
       <script src='/node/angular-ui-bootstrap/dist/ui-bootstrap.js'></script>
@@ -31,8 +33,8 @@
    <body>
       <!--Navigation bar -->
       <div class="scrollable" id="navigation">
-         <div class="scrollable-header">
-            <img class="logo center-block" src="/assets/lunchline.png">
+         <div class="scrollable-header" id="pageHeader">
+            <img class="logo center-block" src="/assets/green_on_white.png">
          </div>
          <div ui-view class="scrollable-content" ng-animate=" 'animate' ">
 
