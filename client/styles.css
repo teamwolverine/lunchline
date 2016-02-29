@@ -76,6 +76,10 @@ a.list-group-item {
   font-weight: bold;
 }
 
+.listHeading:hover {
+  background-color: #eee;
+}
+
 #listViewHeader {
   padding-bottom: 0;
 }
