@@ -17,6 +17,7 @@ The current code you see represents our MVP. Lunchline will evolve and become ev
 * Restaurant photos
 * Reviews of restaurants
 * An incentive/reward system
+* Online ordering
 * User accounts so they can save favorite restaurants, etc
 
 These are just a few of the ideas we want to implement and this list will constantly evolve. Feel free to give some input on ideas you'd like to see!
