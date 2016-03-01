@@ -1,5 +1,5 @@
 myApp
-  // Data factory: contains main get request for list of objects and storage of clicked on item
+  // Data factory: contains main post request for list of objects and storage of clicked on item
   .factory('Data', function($http) {
     var getData = function(userLoc, callback) {
       $http({
@@ -18,6 +18,7 @@ myApp
           console.log("ERROR: ", response);
         });
     };
+    // Storage of clicked item on listView so that restView can pull up data
     var clickedItem = {};
     return {
       getData: getData,
@@ -34,7 +35,7 @@ myApp
       var deg2rad = function(deg) {
         return deg * (Math.PI / 180)
       }
-      var R = 6371; // Radius of Earth
+      var R = 6371; // Radius of Earth in meters
       var dLat = deg2rad(lat2 - lat1);
       var dLon = deg2rad(long2 - long1);
       var a =
@@ -49,8 +50,8 @@ myApp
     return {
       calc: calc
     }
-  // PostData factory : updates the database on a reported restaurant wait time
-  }).factory('PostData', function($http) {
+  // Update factory : updates the database on a reported restaurant wait time with put request
+  }).factory('Update', function($http) {
 
     function updateWait(objToSend) {
       $http({
@@ -58,8 +59,8 @@ myApp
         url: '/api/update',
         data: objToSend
       }).then(function successCallback(response) {
-        console.log('PUT: Sent ' + JSON.stringify(objToSend) + ' successfully');
-        console.log('Response from server is : ', response);
+        // console.log('PUT: Sent ' + JSON.stringify(objToSend) + ' successfully');
+        // console.log('Response from server is : ', response);
       }, function errorCallback(response) {
         console.log('ERROR on Put Request!');
       });

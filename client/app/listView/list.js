@@ -1,5 +1,5 @@
 // Controller for the main home list view
-myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParams, $state) {
+myApp.controller('listCtrl', function(distance, Data, $scope) {
    $scope.data = [];
    $scope.userLocation = {};
 
@@ -8,7 +8,6 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
    $scope.transferEvent = function(obj) {
       Data.clickedItem = obj;
       sessionStorage["tempStorage"] = JSON.stringify(obj);
-      Data.showButton = true;
    }
 
    // Order variable used for the sorting order
@@ -17,6 +16,9 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
       $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
    };
 
+   // Main function on page load
+   // Gets user's geo location, sends it to server as a post request
+   // Saves results returned to scope object
    $scope.restInfo = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
          $scope.userLocation = {
@@ -24,7 +26,7 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
             long: position.coords.longitude
          };
          Data.getData($scope.userLocation, function(fetchedData) {
-            //Make a distance property for each restaurant
+            // Make a distance property for each restaurant
             for (var i = 0; i < fetchedData.length; i++) {
                var destination = {
                   lat: fetchedData[i].restaurant.geometry.location.lat,
@@ -32,14 +34,17 @@ myApp.controller('listCtrl', function(distance, Data, $scope, $http, $stateParam
                };
                fetchedData[i].restaurant.dist = distance.calc($scope.userLocation, destination);
             }
+            // Save fetched data to scope object
             $scope.data = fetchedData;
+            // Remove loading gif animation
             $scope.contentLoading = false;
          });
       });
-      //Fetch data for that location
    }
 
+   // Call main post request
    $scope.restInfo();
+   // Sets default order to be ascending
    $scope.reverse = true;
    $scope.order('restaurant.dist');
    $scope.contentLoading = true;

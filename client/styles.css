@@ -1,3 +1,4 @@
+/* Set main base font size of document that em is based off of */
 * {
   font-family: "Helvetica Neue", "Helvetica", "Arial";
   font-size: 16px;
@@ -114,8 +115,7 @@ a.list-group-item {
   font-size: .8em;
 }
 
-.googleBlue {
-  /*background-color: #4285F4;*/
+.oliveGreen {
   background-color: #777D38;
 }
 
@@ -219,66 +219,9 @@ and (min-device-width : 736px) {
   }
 }
 
-/*Cameron STUFF*/
-
-
 .scrollable {
    position: relative;
 }
-
-#restaurant {
-   position: relative;
-   margin-top: 1em;
-   margin-bottom: 1em;
-   margin-left: 1em;
-   margin-right: 1em;
-   border-radius: 1em;
-   border: 5px solid green;
-   padding: 2%;
-}
-
-.restWait {
-   position: absolute;
-   color:black;
-   border: 1px solid black;
-   background-color: blue;
-   width: 30%;
-   height: 80%;
-   border-radius: 2px;
-   border-radius: 1em;
-}
-
-.restName {
-   text-align: right;
-   /*width: 70%;*/
-   /*right: 0%;*/
-   position: relative;
-   padding-left: 35%;
-   font-family:inherit;
-   /*border: 1px solid black;*/
-   /*margin-right: 5em;*/
-
-   font-size: 2em;
-   color: black;
-}
-
-.restDist {
-   text-align: right;
-   /*border: 1px solid black;*/
-   position: relative;
-   color: black;
-
-   /*margin-right: 6em;*/
-}
-
-
-/*#backButton {
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   background-color: black;
-}*/
-
 
 #backButtonDiv {
    position: fixed;

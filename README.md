@@ -13,15 +13,17 @@ Lunchline is designed in Angular and ExpressJS. We designed it to be as simple a
 The current code you see represents our MVP. Lunchline will evolve and become even cooler! Some features we would like to add are:
 
 * Ability to filter what types of restaurants you're in the mood for
+* Faster back end algorithm
 * Restaurant menus
 * Restaurant photos
 * Reviews of restaurants
-* An incentive/reward system
-* Online ordering
+* Display last updated time
+* Time reset/decay
 * User accounts so they can save favorite restaurants, etc
+* Online ordering
+* An incentive/reward system
 
 These are just a few of the ideas we want to implement and this list will constantly evolve. Feel free to give some input on ideas you'd like to see!
-
 
 # Team
 This project was created by:

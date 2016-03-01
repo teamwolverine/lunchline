@@ -1,6 +1,6 @@
 /* Handles controller code for main restaurant info */
 
-myApp.controller('restCtrl', function($scope, Data, PostData) {
+myApp.controller('restCtrl', function($scope, Data, Update) {
 
   $scope.restaurant = {
     id: '',
@@ -78,12 +78,12 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
         $scope.waitString = '< 10 Mins';
         break;
       case '3_grey':
-        angular.element(document.querySelector('#currWait')).addClass('googleBlue');
+        angular.element(document.querySelector('#currWait')).addClass('oliveGreen');
         $scope.waitString = 'not available';
         break;
     }
   } else { // No data loaded.  Load default values.
-    angular.element(document.querySelector('#currWait')).addClass('googleBlue');
+    angular.element(document.querySelector('#currWait')).addClass('oliveGreen');
     $scope.waitString = 'not available';
   }
 
@@ -97,7 +97,7 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     };
 
     updateWaitColorDiv(wait);
-    PostData.updateWait(sendObj);
+    Update.updateWait(sendObj);
   };
 
   // Sweet Alert popup to thank users when they check in a wait time.
@@ -115,21 +115,21 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       case '2_red':
         angular.element(document.querySelector('#currWait')).removeClass('yellow');
         angular.element(document.querySelector('#currWait')).removeClass('green');
-        angular.element(document.querySelector('#currWait')).removeClass('googleBlue');
+        angular.element(document.querySelector('#currWait')).removeClass('oliveGreen');
         angular.element(document.querySelector('#currWait')).addClass('red');
         $scope.waitString = '> 30 Mins';
         break;
       case '1_yellow':
         angular.element(document.querySelector('#currWait')).removeClass('red');
         angular.element(document.querySelector('#currWait')).removeClass('green');
-        angular.element(document.querySelector('#currWait')).removeClass('googleBlue');
+        angular.element(document.querySelector('#currWait')).removeClass('oliveGreen');
         angular.element(document.querySelector('#currWait')).addClass('yellow');
         $scope.waitString = '~ 20 Mins';
         break;
       case '0_green':
         angular.element(document.querySelector('#currWait')).removeClass('yellow');
         angular.element(document.querySelector('#currWait')).removeClass('red');
-        angular.element(document.querySelector('#currWait')).removeClass('googleBlue');
+        angular.element(document.querySelector('#currWait')).removeClass('oliveGreen');
         angular.element(document.querySelector('#currWait')).addClass('green');
         $scope.waitString = '< 10 Mins';
         break;

@@ -6,6 +6,8 @@ if (!process.env.GOOGLEPLACESKEY) {
   var config = require('../config.js');
 }
 
+// Function called when post request is received with lat/long
+// Makes a request to 
 exports.getRestaurants = function(req, res) {
   console.log('Receiving a request!', req.body);
   var lat = req.body.lat;
@@ -13,6 +15,7 @@ exports.getRestaurants = function(req, res) {
   var results = [];
   var locations = new PlaceSearch(process.env.GOOGLEPLACESKEY || config.placesKey);
 
+  // Make google places API call with lat and long
   locations.search({
     keyword: 'food',
     location: [lat, lng],
@@ -22,6 +25,10 @@ exports.getRestaurants = function(req, res) {
       throw err;
     }
 
+    // Loop through each of the response results and check if restaurant is in database
+    // If not, put it in the database and initiate it to grey
+    // If so, push it to results array
+    // Once results are full, return JSON to client
     _.each(response.results, function(item) {
       Restaurant.findOne({
         id: item.id
@@ -48,14 +55,16 @@ exports.getRestaurants = function(req, res) {
               console.log("not saved");
               throw err;
             }
+            // ** TODO **: Rewrite condition that JSON is returned so it doesn't fail with too few results
             results.push(restaurant);
             console.log('RESULTS LENGTH : ', results.length);
-            if (results.length === 15) {
+            if (results.length === 18) {
               res.json(results);
             }
           });
         } else {
           results.push(obj);
+          // ** TODO **: Rewrite condition that JSON is returned so it doesn't fail with too few results
           console.log('RESULTS LENGTH : ', results.length);
 
           if (results.length === 18) {
@@ -67,18 +76,19 @@ exports.getRestaurants = function(req, res) {
   });
 };
 
+// Function that updates the wait time/color in the database
 exports.updateWait = function(req, res) {
-  console.log("request obj: ", req.body);
+  // console.log("request obj: ", req.body);
   var query = {
     place_id: req.body.place_id
   };
 
-  console.log("+++ query", query);
+  // console.log("+++ query", query);
   var update = {
     wait: req.body.wait
   };
 
-  console.log("+++ update", update);
+  // Upsert updates instead of adding a new entry
   var options = {
     upsert: true
   };
