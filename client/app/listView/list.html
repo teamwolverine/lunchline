@@ -1,0 +1,21 @@
+
+<div>
+  <!-- Loading Animation -->
+  <img src="../../assets/balls.gif" ng-show="contentLoading" class="loading">
+
+  <div class="list-group">
+    <!-- Header with list lables and sort options -->
+    <div id="listViewHeader" class="list-group-item">
+      <ul class="list-inline">
+        <li class="listHeading" id="distanceTitle" ng-click="order('restaurant.dist')">Dist</li>
+        <li class="listHeading" id="nameTitle" ng-click="order('restaurant.name')"> Name</li>
+        <li class="listHeading pull-right" id="waitTitle" ng-click="order('restaurant.wait')">Wait</li>
+      </ul>
+    </div>
+    <!-- List of Restaurants.  Uses Angular Mobile UI classes -->
+    <a ng-repeat="restaurant in data | orderBy:predicate:reverse" ui-sref="restView" ng-click="transferEvent(restaurant.restaurant)" class="list-group-item">
+      {{ restaurant.restaurant.dist }}mi - {{ restaurant.restaurant.name }} <img class="waitColorDot" ng-src="../../assets/{{restaurant.restaurant.wait}}.png">
+      <img class="rightChevron" ng-src="../../assets/rightChevron.png">
+    </a>
+  </div>
+</div>

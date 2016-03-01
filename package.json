@@ -4,11 +4,25 @@
   "description": "Lunchline App",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.13.4"
+    "angular-loading-bar": "^0.8.0",
+    "angular-ui-bootstrap": "^1.1.2",
+    "body-parser": "^1.15.0",
+    "bower": "^1.7.7",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "geolocate": "0.0.1",
+    "google-locations": "^0.2.0",
+    "googleplaces": "^0.6.0",
+    "mongoose": "^4.4.4",
+    "ngmap": "^1.17.0",
+    "q": "^1.4.1",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
