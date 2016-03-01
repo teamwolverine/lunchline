@@ -1,9 +1,9 @@
-var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-angular-ui', 'ngMap', 'angular-loading-bar'])
+var myApp = angular.module('lunchline', ['ui.router', 'mobile-angular-ui', 'ngMap', 'angular-loading-bar'])
 //UI router setup
 .config(function ($stateProvider, $urlRouterProvider) {
    $stateProvider
    .state('restView', {
-      url: '/restView',
+      url: '/restaurant',
       templateUrl: './app/restView/rest.html',
       controller: 'restCtrl'
    })
@@ -14,6 +14,7 @@ var myApp = angular.module('lunchline', ['ui.router', 'ui.bootstrap', 'mobile-an
    });
    $urlRouterProvider.otherwise('/');
 })
+// Remove spinner in top left corner from angular loading bar
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   }]);

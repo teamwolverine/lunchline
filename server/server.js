@@ -1,12 +1,10 @@
 var express = require('express');
 var app = express();
-var cors = require('cors');
-var Q = require('q');
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var restController = require('./restaurant/restController.js');
 var jsonParser = require('body-parser').json();
 
+// Require a config file with API keys if testing locally
 if(!process.env.USERNAME){
   var config = require('./config.js');
 };
@@ -15,6 +13,7 @@ if(!process.env.USERNAME){
 var mongooseUsername = process.env.USERNAME || config.username;
 var mongoosePassword = process.env.PASSWORD || config.password;
 
+// Connect to mongo lab account
 mongoose.connect('mongodb://'+mongooseUsername+':'+mongoosePassword+'@ds011158.mongolab.com:11158/lunchline-js')
 console.log('L19 Connected to Mongoose');
 
