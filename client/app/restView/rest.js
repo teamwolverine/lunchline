@@ -15,6 +15,8 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     waitTime: ''
   };
 
+  // Check if object doesn't exist, use session storage.
+  // This way, on refresh or back, it won't have all undefined values
   if (!Data.clickedItem.id) {
     Data.clickedItem = JSON.parse(sessionStorage.tempStorage);
   }
@@ -98,6 +100,7 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     PostData.updateWait(sendObj);
   };
 
+  // Sweet Alert popup to thank users when they check in a wait time.
   function updateWaitColorDiv(wait) {
     swal({
       html: '<p id="sweetAlert">Thanks for checking in!</p>',
@@ -107,6 +110,7 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
       showConfirmButton: false
     });
 
+    // Change the wait color of the div by removing and adding classes
     switch (wait) {
       case '2_red':
         angular.element(document.querySelector('#currWait')).removeClass('yellow');
@@ -132,31 +136,3 @@ myApp.controller('restCtrl', function($scope, Data, PostData) {
     }
   }
 });
-
-// Test function to get grab first restaurant from database
-// Data.getData()
-//   .then(function(fetchedData) {
-//     console.log('++GOT DATA,', fetchedData);
-//     $scope.list = fetchedData;
-
-//     $scope.restaurant.name = $scope.list[0].restaurant.name;
-//     $scope.restaurant.category = $scope.list[0].restaurant.types[0];
-//     $scope.restaurant.rating = $scope.list[0].restaurant.rating;
-//     $scope.restaurant.address = $scope.list[0].restaurant.vicinity;
-//     $scope.restaurant.waitTime = $scope.list[0].restaurant.wait;
-
-//     console.log($scope.restaurant.waitTime);
-
-//     switch($scope.restaurant.waitTime) {
-//       case 'red':;
-//         angular.element(document.querySelector('#currWait')).addClass('red');
-//         $scope.waitString = '> 1 Hour';
-//         break;
-//       case 'yellow':
-//         angular.element(document.querySelector('#currWait')).addClass('yellow');
-//         break;
-//       case 'green':
-//         angular.element(document.querySelector('#currWait')).addClass('green');
-//         break;
-//     }
-// });
